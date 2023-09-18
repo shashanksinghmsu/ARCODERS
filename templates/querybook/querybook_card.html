@@ -1,0 +1,37 @@
+{% load static %}
+
+<script src="{% static 'js/querybook/template/querybook_card.js' %}"></script>
+
+<script>
+    $(document).ready(function () {
+        const querybook_card_section = document.getElementById('querybook_card_section');
+        var safe_data = `{{ json_data|safe }}`;
+        var querybook_data = JSON.parse(safe_data);
+        var query, language, language_url, query_url, answer_count;
+        var html_data = ''
+        var is_particular_language = '{{language}}'
+        var is_user_data = '{{is_user_data}}'
+        var id = null;
+        var is_edit = false;
+        for(var i = 0; i < querybook_data.length; i++)
+        {   
+            query = cap_first(truncate_string(querybook_data[i].fields.query, 100));
+            language = querybook_data[i].fields.language;
+        
+            language_url = `/${language}/` + `?next=${pathname}`;
+            
+            if (is_user_data != ''){   
+                is_edit = true             
+                id = querybook_data[i].fields.id
+            }
+            answer_count = querybook_data[i].fields.answer;
+            slug = querybook_data[i].fields.slug;
+            query_url = `../querybook/${language}/${slug}/` + `?next=${pathname}`;
+            
+            html_data += card(query, language, language_url, answer_count, query_url, is_edit, id);
+        }
+        var prev_data = querybook_card_section.innerHTML
+        querybook_card_section.innerHTML = html_data + prev_data        
+    })
+    
+</script>

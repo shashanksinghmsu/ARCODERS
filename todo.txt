@@ -1,0 +1,46 @@
+--> rating  -->
+--> profile info  --> 
+--> contact us -->
+--> new Email  -->
+--> remove share button -->
+--> icons   -->
+--> prism name -->
+--> prism file updated --> enough
+--> cache the program and querybook list    -->
+--> increase number of program and query    -->
+--> resend otp --> No option
+--> about language  -->
+--> about program and query -->
+--> remove print statements -->
+--> copy right  -->
+--> username case insensitive   -->
+
+--> add domain name in sign up  -->
+--> check sitemaps  -->
+--> css -->
+
+
+	  Alias /static /var/www/ARCODERS/static
+    <Directory /var/www/ARCODERS/static>
+        Require all granted
+    </Directory>
+	
+	<Directory /var/www/ARCODERS/ARCODERS>
+        <Files wsgi.py>
+            Require all granted
+        </Files>
+    </Directory>
+
+    WSGIDaemonProcess ARCODERS python-path=/var/www/ARCODERS python-home=/var/www/ARCODERS/ARCODERS
+
+    wsgidAEMONpROCESS arcoders PYTHON-PATH=/VAR/WWW/arcoders PYTHON-HOME=/VAR/WWW/arcoders/arcoders
+
+
+    WSGIProcessGroup ARCODERS
+    
+    wsgipROCESSgROUP arcoders 
+    
+    
+    WSGIScriptAlias / /var/www/ARCODERS/ARCODERS/wsgi.py
+
+    wsgisCRIPTaLIAS / /VAR/WWW/arcoders/arcoders/WSGI.py

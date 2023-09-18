@@ -1,0 +1,34 @@
+    .card-colors {
+        border-radius: 15px;
+        background: #122647;
+        color: white;
+    }
+
+    .card-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .card-style{
+        border: 3px solid dodgerblue;
+        border-radius: 15px;
+        max-width: 400px;
+        margin: auto;
+        width: 323px;
+        margin-top: 3rem;
+    }
+    .title-style{
+        border-radius: 15px 15px 0px 0px !important;
+        color: dodgerblue;
+        background: black;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+    .card-title{
+        margin-bottom: 0.5rem;
+
+    }    
+
+    .card-text{
+        margin-top: 1rem;
+    }

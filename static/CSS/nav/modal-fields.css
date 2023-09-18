@@ -1,0 +1,38 @@
+    .search-box-field{
+        border: 2px solid dodgerblue !important;
+        width: 100%;
+        color: dodgerblue !important;
+        font-weight: bold;
+        
+    }
+    .search-box-field::placeholder {
+        color: dodgerblue;
+        opacity: 1; 
+    }
+
+    .sb-icon{
+        width: 2.5rem;
+    }    
+    .dropdown-toggle::after{
+        content: none;
+    }
+
+    .dropdown-menu{
+        width: 100%;
+        background-color: black;
+        font-weight: bold;
+        padding: 0;
+        border: 2px solid dodgerblue;
+        border-top: 0;
+        margin: 0;
+    }
+    .dropdown-item{
+        color: dodgerblue;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border-bottom: 2px solid #122647;
+    }
+    .sb-error{
+        margin-bottom: 5px;
+        text-align: center;
+    }

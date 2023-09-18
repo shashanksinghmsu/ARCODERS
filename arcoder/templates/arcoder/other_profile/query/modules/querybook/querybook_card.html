@@ -1,0 +1,41 @@
+{% for start in data %}
+<article class="search-result row">
+
+	<div class="col-xs-12 col-sm-12 col-md-7 excerpet querybook_card">
+
+		<h3 title="querybook" class="querybook_title">{{start.query|capfirst|truncatechars:200}}</h3>
+
+		<hr class="querybook_title_underline">
+
+		<ul class="meta-search querybook_list_block">
+			<li>
+				<a href="{% url 'language' lang=start.language %}?next={{request.path}}" class="querybook_language_url">
+					<span class="fa fa-laptop" aria-hidden="true"></span>
+					{{start.language|capfirst}}</a>
+			</li>
+		</ul>
+
+		<div class="final_block">
+			<p class="answer_count">
+				<span class="fa fa-code code_icon" aria-hidden="true" style="color: mintcream !important;"></span>
+				<span>
+					{{start.answer}} Fixes
+				</span>
+			</p>
+
+
+			<a type="button" href="{% url 'final_query' language=start.language query_slug=start.slug %}?next={{request.path}}"
+				class="btn btn-primary btn-sm program_final_button">
+				&lt;/Fixes&gt;	
+			</a>
+		</div>
+	</div>
+
+	<span class="clearfix borda"></span>
+</article>
+<hr class="col-xs-12 col-sm-12 col-md-9 querybook_line">
+
+
+
+
+{% endfor %}

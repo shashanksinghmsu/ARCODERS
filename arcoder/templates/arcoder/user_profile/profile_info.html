@@ -1,0 +1,92 @@
+<style>
+    #privacy_info {
+        margin-top: 1.2rem;
+        border: none;
+        background: #122647;
+        color: dodgerblue;
+    }
+</style>
+
+
+<div class="col-md-8 col-sm-12">
+    <div class="education arBox">
+        <h2>Profile Info</h2>
+        <div class="education-content">
+            <table style="text-align: start;margin: auto;">
+                <tr>
+                    <td style="width: 25%; font-weight: bold; ">Username</td>
+                    <td class="data" style="width: 60%;padding-left: 15px;font-weight: bold;">
+                        <div class="scroller">{{user.username}}</div>
+                    </td>
+                    <td><button type="button" class="update"><i class="fa fa-pencil-square-o"
+                                aria-hidden="true"></i></button></td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td style="padding-left: 15px;" class="data">
+                        <div class="">
+                            <pre class="scroller"
+                                style="color: dodgerblue;font-size: 106.5%;  margin: 0;">{{user.first_name}} {{user.last_name}} </pre>
+                        </div>
+                    </td>
+                    <td><button type="button" class="update"><i class="fa fa-pencil-square-o"
+                                aria-hidden="true"></i></button></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td class="data" style="padding-left: 15px;">
+                        <div class="scroller">{{user.email}}</div>
+                    </td>
+                    <td><button type="button" class="update"><i class="fa fa-pencil-square-o"
+                                aria-hidden="true"></i></button></td>
+                </tr>
+                <tr>
+                    <td>DOB</td>
+                    <td class="data" style="padding-left: 15px;">
+                        <div class="scroller">{{user_data.dob}}</div>
+                    </td>    
+                </tr>
+
+                <tr>
+                    <td>Gender</td>
+                    <td class="data" style="padding-left: 15px;">
+                        <div class="scroller">{{user_data.gender}}</div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: right;">
+                        <div style="margin-top: 1.2rem;" onclick="privacy_submit()">
+                            <form action="{% url 'user_privacy' %}" method="post" id="privacy_form">
+                                {% csrf_token %}
+
+                                {{privacy_form.privacy}}
+                            </form>
+
+                        </div>
+                    </td>
+                    <td style="padding-left: 5px;display: flex;">
+                        <div style="margin-top:1.2rem;" class="privacy_div" onclick="privacy_check()"
+                            title="It not allows other user to access your Email.">
+                            <strong>
+                                Email Privacy &nbsp;
+                            </strong>
+                        </div>
+                    </td>
+                    <td>
+                        <button id="privacy_info">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        </button>
+
+                    </td>
+                </tr>
+
+
+            </table>
+
+
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,29 @@
+<div id="paginator">
+
+    <ul class="pagination my-3 mx-1" style="display: inline-flex">
+        {% if data.has_previous %}
+        <li class="page-item">
+            <a href="?page={{data.previous_page_number}}" class="page-link">&laquo</a>
+        </li>
+        {% endif %}
+        {% for page_number in data.paginator.page_range %}
+    {% if page_number > data.number|add:"-3" and page_number < data.number|add:"3" %} <!-- This div is used only for
+        splitting the 2 if statement -->
+        <div></div>
+        {% if data.number == page_number %}
+        <li class="page-item active">
+            <a href="?page={{ page_number }}" class="page-link">{{page_number}}</a>
+        </li>
+        {% else %}
+        
+        <li class="page-item">
+            <a href="?page={{ page_number }}" class="page-link">{{page_number}}</a>
+        </li>
+
+        {% endif %} {% endif %} {% endfor %} {% if data.has_next %}
+        <li class="page-item">
+            <a href="?page={{data.next_page_number}}" class="page-link">&raquo</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>

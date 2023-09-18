@@ -1,0 +1,95 @@
+        :root {
+            --background_color: #122647;
+            --border_color: dodgerblue;
+            --text_color: white;
+        }
+
+        hr {
+            margin: 0px;
+            padding: 0;
+            color: var(--border_color);
+            height: 0px;
+            border-width: 2px;
+            border: 2px solid var(--border_color);
+            /* box-shadow: 5px 10px 15px var(--border_color); */
+        }
+
+        .arbuttons {
+            background: black !important;
+            color: var(--text_color) !important;
+            outline: var(--border_color) !important;
+            border: 2px solid var(--border_color) !important;
+            font-weight: bold !important;
+            font-size: 20px !important;
+            border-radius: 5px;
+        }
+
+        .arbuttons:hover {
+            color: var(--border_color) !important;
+            background: black !important;
+            border-color: var(--border_color) !important;
+        }
+
+        #button-menu:hover {
+            color: var(--border_color);
+        }
+
+        /* this will make the selected option bold in the list view of navbar use in language, category, user-profile */
+        .selected_option {
+            font-weight: bold;
+            font-size: 1rem;
+            
+        }
+
+        .loginStyle {
+            border: 3px solid dodgerblue;
+            background: #122647;
+            color: dodgerblue;
+        }
+
+        .img-color {
+            border-radius: 50%;
+            border: 1px solid dodgerblue;
+            box-shadow: 0px 0px 15px dodgerblue;
+            animation: animate 5s linear infinite;
+        }
+
+        .txt-color {
+            color: #00f3ff;
+            text-shadow: 0 0 8px #00f3ff,
+                0 0 20px #00f3ff;
+            animation: animate 5s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+
+
+        .page-link {
+            background: black;
+            border: 2px solid dodgerblue;
+            font-weight: bold;
+        }
+
+        .page-item.active .page-link {
+            color: black;
+            text-decoration: none;
+            background-color: dodgerblue;
+            border-color: black;
+
+        }
+
+        .page-link:hover {
+            color: black;
+            text-decoration: none;
+            background-color: dodgerblue;
+            border-color: black;
+        }

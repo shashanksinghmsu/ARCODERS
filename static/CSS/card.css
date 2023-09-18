@@ -1,0 +1,114 @@
+    .container section{
+        max-width: 100% !important;
+    }
+    .program_title {
+        color: mintcream;
+        text-align: start;
+        justify-content: space-between;
+        font-family: sans-serif, 'Roboto';
+        margin-top: 8px !important;
+        font-size: 1.2rem;
+    }
+
+    .program_language_url {
+        text-decoration: none;
+        font-size: 17px;
+        font-weight: bold;
+        display: inline-block;
+        color: white;
+        font-family: monospace;
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .fa{
+        font-weight: bold;
+    }
+
+    .program_language_url:hover {
+        text-decoration: none;
+        font-weight: bolder !important;
+        color: dodgerblue;
+    }
+
+    .program_answer {
+        color: mintcream;
+        margin: auto 0;
+        font-family: 'JetBrains mono', monospace, 'Roboto' !important;
+        /* font-weight: bold !important; */
+    }
+
+    .program_answer span{
+        vertical-align: middle;
+    }
+
+    .program_final_button {
+        float: right;
+        margin-bottom: 4px;
+        font-family: 'JetBrains mono', monospace, 'Roboto';
+        font-size: 1rem !important;
+    }
+
+    .program_hr {
+        font-weight: bold;
+        border: 1px solid mintcream;
+        box-shadow: none;
+        margin: auto;
+        margin-top: 10px;
+        width: auto;
+        background-color: mintcream;
+    }
+
+    .program_card {
+        border: 2px solid dodgerblue;
+        border-radius: 10px;
+        margin: auto;
+    }
+
+    .edit_program{
+        margin: auto 0;
+        color: dodgerblue;
+        font-weight: bold;
+        font-family: monospace;
+        font-size: 1.125rem;
+        font-weight: bold !important;
+    }
+
+    p {
+        text-align: left;
+    }
+
+    .search-result h3 {
+        margin-bottom: 4px !important;
+    }
+
+    .lowerData {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    /* add program styling */
+    .add_program{
+        border-radius: 50%;
+    }
+
+    .add_program_hover{
+        border-radius: 10px !important;
+    }
+
+    .code_icon{
+    color: mintcream !important;
+    border-radius: 50%;
+    background: black;
+    border: 3px solid mintcream;
+    vertical-align: middle;
+    font-weight: bold;
+    }
+
+    .edit-button{
+        font-weight: bold !important;
+    }
+
+    .edit-button span{
+        color: dodgerblue !important;
+    }

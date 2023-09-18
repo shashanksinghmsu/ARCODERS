@@ -1,0 +1,44 @@
+ <div class="col-md-8 col-sm-12">
+            <div class="skills experience arBox">
+                <h2>Rating</h2>
+                <div class="scroller-y" style="overflow-y: scroll; height: 160px;">
+
+     
+
+
+                    <strong style="font-weight: bold; margin-top: 0.7rem;width: 100%;">
+                        PROGRAM
+                        <span class="pull-right">
+                            {{user_data.program_rating}}%
+                        </span>
+                    </strong>
+
+                    <div class="progress" style="background: black;margin-right:10px;">
+                        <div class="progress-bar progress-bar" role="progressbar" aria-valuenow="{{user_data.program_rating}}" aria-valuemin="0" aria-valuemax="100" style="width: {{user_data.program_rating}}%;">
+                        </div>
+                    </div>
+
+
+                    <!-- solution rating -->
+                    <strong style="font-weight: bold; margin-top: 0.7rem;width: 100%;">
+                        SOLUTION
+                        <span class="pull-right">
+                            {{user_data.solution_rating}}%
+                        </span>
+                    </strong>
+
+                    <div class="progress" style="background: black;margin-right:10px;">
+                        <div class="progress-bar progress-bar" role="progressbar" aria-valuenow="{{user_data.solution_rating}}" aria-valuemin="0" aria-valuemax="100" style="width: {{user_data.solution_rating}}%;">
+                        </div>
+                    </div>
+
+
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>

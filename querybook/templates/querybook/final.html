@@ -1,0 +1,318 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    QueryBook : ARCODERS
+{% endblock %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CSS/prism.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/program/scroll.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/querybook/final/final.css' %}">
+    <script type="text/javascript" src="{% static 'js/querybook/final.js' %}"></script>
+
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container" id = 'final_page_container'>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <!-- Post Content Column -->
+            <div class="col-lg-8" id = 'query_data_column'>
+
+                {% include 'querybook/modules/final/header.html' %}
+                
+                <hr class="hr_mintcream">                
+                <hr class="hr_mintcream" style="margin-top: 0;">
+                
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block js %}
+
+
+<script>
+
+    var like_script = document.createElement("script");
+    like_script.type = 'text/javascript'
+    var rating_js = document.createElement('script')
+    
+
+
+    $(document).ready(function () {
+        var element = document.getElementById('query_data_column')
+        var answer_id, answer_count
+
+        // title data
+        $.ajax({
+            url: '{% url 'query_data' slug=query.slug %}',
+            type: 'GET',
+            data: {}
+        }).done(function (response) {
+            answer_id = response.solutions.id
+            answer_count = response.answer_count
+            // var prism_name = response.prism_name
+            auth = response.user_auth
+
+            // setting the title
+            var set_title_name = document.getElementById('query_title_data')
+            set_title_name.innerHTML = cap_first(response.title)
+            var answer_count_element = document.getElementById('answer_count')
+
+            answer_count_element.innerHTML = `
+            <span class="fa fa-code code_icon" aria-hidden="true" style="color: dodgerblue !important;"></span>
+             ${response.answer_count} Answer${add_s(response.answer_count)}`
+            
+            var query_data_html = document.getElementById('query_info')
+            query_data_html.innerHTML = `
+                <li>
+                    <span class="fa fa-calendar" aria-hidden="true"></span>
+                    <span>${response.time_stamp}</span>
+                </li>
+                <li>
+                    <a href="/user/${response.author}" class="query_user">
+                        <span class="fa fa-user" aria-hidden="true"></span>
+                        <span>${truncate(response.author)}</span>
+                    </a>
+                </li>`
+
+            var query_description = document.getElementById('query_description')
+            
+            if (query_description != null){
+                query_description.innerHTML = response.description
+            }
+
+            // program data
+            for (let i = 0; i < answer_id.length; i++) {
+                var program_header = ` 
+                    <div class = 'querybook_card'>
+                        <ul class="meta-search querybook_sol_header">
+                            <li>
+                                <span class="fa fa-calendar" aria-hidden="true"></span> <span>
+                                    ${response.solutions.time_stamp[i]}
+                                </span>
+                            </li>
+                        
+                            <li>
+                                <a href="/user/${response.solutions.author[i]}/" class="sol_user">
+                                    <span class="fa fa-user" aria-hidden="true"></span>
+                                    <span>
+                                        ${truncate(response.solutions.author[i])}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <hr class="hr_mintcream" style="margin: auto 1rem;">`
+
+
+            var total_rating = `
+                <div class="total-rating">
+                    <p class="rating_title">
+                        <span>
+                            Total Rating
+                        </span>
+                        <span>
+                            ${response.solutions.total_rating[i][0]}/100
+                        </span>
+                    </p>
+
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="${response.solutions.total_rating[i][0]}" aria-valuemin="0" aria-valuemax="100" style="width: ${response.solutions.total_rating[i][0]}%;"></div>
+                    </div>
+                </div>`
+
+
+            var temp_1 = `
+                <div class = 'query_solution'> 
+                    <p class="solution_content">
+                        ${response.solutions.solution[i]}
+                    </p> 
+                </div>`
+            
+            var hr_dodger = `<hr style="border: 1px solid dodgerblue; margin-top: 10px; margin: 1rem;">`
+
+            var code = temp_1 + hr_dodger
+
+            like_js = `
+            document.getElementById("like${response.solutions.id[i]}").addEventListener('click', function(){
+                $.ajax({
+                    url: '/queryBook/like/',
+                    type: 'POST',
+                    data: { id: ${response.solutions.id[i]}}
+                }).done(function (response) {
+                    if (response == "True") {
+                        $(".liked${response.solutions.id[i]}").removeClass('solution_card_unlike');
+                        $(".liked${response.solutions.id[i]}").addClass('solution_card_like');
+                        like_count = parseInt($(".like_count${response.solutions.id[i]}").text())
+                        $(".like_count${response.solutions.id[i]}").text(like_count + 1 + ' like${add_s(response.solutions.like_count[i])}');
+                    }
+                    else {
+                        $(".liked${response.solutions.id[i]}").addClass('solution_card_unlike');
+                        $(".liked${response.solutions.id[i]}").removeClass('solution_card_like');
+                        like_count = parseInt($(".like_count${response.solutions.id[i]}").text())
+                        $(".like_count${response.solutions.id[i]}").text(like_count - 1 + ' like${add_s(response.solutions.like_count[i])}');
+                    }
+                })
+                .fail(function () {
+                    console.log("failed");
+                })
+            }); `
+
+        like_script.innerHTML += like_js
+        append_element = document.getElementById('final_page_container')
+
+
+        if (auth == true) {
+            var rating_data = `
+                <div class="card_bottom_container">
+                    ${like_html(response.like_data[i], response.solutions.id[i], response.solutions.like_count[i])}
+
+                    <div class="mb-3 rate_card">
+                        <p>
+                            rate&nbsp;
+                        </p>
+                        
+                        <div id="halfstarsReview${response.solutions.id[i]}"
+                                        class="star_rating"></div>
+                    </div>
+                    
+                    <input type="text" readonly id="halfstarsInput${response.solutions.id[i]}" class="form-control form-control-sm" hidden value=${response.rating[i]}>
+                
+                </div>
+                </div>`
+
+
+        rating_js.innerHTML += `
+            $("#halfstarsReview${response.solutions.id[i]}").rating({
+                "half": true,
+                "click": function (e) {
+                    $("#halfstarsInput${response.solutions.id[i]}").val(e.stars);
+                    var code_id = ${response.solutions.id[i]
+                }
+
+                $.ajax({
+                    url: '/queryBook/rating/',
+                    type: 'POST',
+                    data: {
+                        id: code_id,
+                        rate: $("#halfstarsInput${response.solutions.id[i]}").val()
+                    }
+                }).done(function (response) {
+                    if (response == "True") {
+                        message('Query Solution SuccessFully Rated!!!')
+                    }
+                    else {
+                        message('Query Solution Rating Failed!!!')
+                    }
+                })
+                .fail(function () {
+                    console.log("failed");
+                })
+                }
+            });
+
+
+            var rate = $('#halfstarsInput${response.solutions.id[i]}').val()
+            var temp_string = "#halfstarsReview${response.solutions.id[i]} i:nth-child("
+            for (var i = 1; i <= rate; i++) {
+                var str1 = temp_string.concat(i)
+                var str = str1.concat(')')
+                $(str).removeClass('fa-star-o')
+                $(str).addClass('fa-star')
+            }
+
+            if (rate -(i - 1) == 0.5) {
+                var str1 = temp_string.concat(i)
+                var str = str1.concat(')')
+                $(str).removeClass('fa-star-o')
+                $(str).addClass('fa-star-half-o')
+            }`
+        }
+        else {
+            rating_data = `<div class="card_bottom_container">
+            ${like_html(response.like_data[i], response.solutions.id[i], response.solutions.like_count[i])}
+            </div>
+            </div >`
+        }
+
+        var finishing_line = `<hr style="border: 2px solid dodgerblue; margin-top: 0px;box-shadow: none; border-radius:10px;">`
+
+        element.innerHTML = element.innerHTML + program_header + total_rating + code + rating_data + finishing_line
+
+        if (auth == true & i == (answer_count - 1)) {
+            setTimeout(function () {
+                append_element.appendChild(like_script);
+            }, 4000);
+
+            setTimeout(function () {
+                append_element.appendChild(rating_js);
+            }, 4000);
+        }
+
+        }
+
+        if (auth == true){
+            var add_solution = `
+                <form class="contactForm" name="post" method="post" action="{% url 'solution_form' language=query.language query_slug=query.slug %}?next={{request.path}} " style="width: 100%; margin-top: 1rem;" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+
+                    <div class="solution_form">
+                        <p>
+                            Add Solution Below
+                        </p>
+
+                        <div class="django-ckeditor-widget" data-field-id="id_solution" style="display: inline-block;">
+                            <textarea cols="40" id="id_solution" name="solution" rows="10" required data-processed="0" data-config="{&quot;skin&quot;: &quot;moono-lisa&quot;, &quot;toolbar_Basic&quot;: [[&quot;Source&quot;, &quot;-&quot;, &quot;Bold&quot;, &quot;Italic&quot;]], &quot;toolbar_Full&quot;: [[&quot;Styles&quot;, &quot;Format&quot;, &quot;Bold&quot;, &quot;Italic&quot;, &quot;Underline&quot;, &quot;Strike&quot;, &quot;SpellChecker&quot;, &quot;Undo&quot;, &quot;Redo&quot;], [&quot;Link&quot;, &quot;Unlink&quot;, &quot;Anchor&quot;], [&quot;Image&quot;, &quot;Flash&quot;, &quot;Table&quot;, &quot;HorizontalRule&quot;], [&quot;TextColor&quot;, &quot;BGColor&quot;], [&quot;Smiley&quot;, &quot;SpecialChar&quot;], [&quot;Source&quot;]], &quot;toolbar&quot;: &quot;Full&quot;, &quot;height&quot;: 291, &quot;width&quot;: 835, &quot;filebrowserWindowWidth&quot;: 940, &quot;filebrowserWindowHeight&quot;: 725, &quot;language&quot;: &quot;en-us&quot;}" data-external-plugin-resources="[]" data-id="id_solution" data-type="ckeditortype"></textarea>
+                        </div>
+                                
+                    </div>
+
+
+                    {% if request.user.username == "anurag" %}
+                        <!-- adding url option only for admin -->
+                        <div class="inputBox">
+                            <input type="text" name="url">
+                            <span>URL </span>
+                        </div>
+                    {% endif %}
+
+                    <button class="arbuttons" type="submit">Add Solution</button>
+                </form>  `
+
+        setTimeout(function () {
+            element.innerHTML += add_solution
+        }, 3000);
+
+
+        setTimeout(function () {
+            var prism_js = document.createElement('script')
+            var ck_js_1 = document.createElement('script')
+            var ck_js_2 = document.createElement('script')
+            prism_js.src = '/static/js/prism.js'
+            ck_js_1.src = '/static/ckeditor/ckeditor-init.js'
+            ck_js_2.src = '/static/ckeditor/ckeditor/ckeditor.js'
+            element.appendChild(prism_js)
+            element.appendChild(ck_js_1)
+            element.appendChild(ck_js_2)
+        }, 4000);
+        }
+
+    })
+    .fail(function () {
+        console.log("failed");
+    })
+    })
+
+</script>
+
+
+
+
+{% endblock %}

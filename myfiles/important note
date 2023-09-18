@@ -1,0 +1,76 @@
+--> delete rating while rating is 0
+--> handling the rating and liking in more efficient way
+--> get like data
+--> get rating data
+--> get total rating data
+--> get comment
+--> get reply
+--> plulariz function
+--> deleting the previous data
+--> always change updated url(program, solution)
+
+--> adding the image in comment
+--> add keyword in model
+--> adding the timesince in comments
+--> resend mail 
+--> forget password
+--> check to create account
+--> verify the new email
+
+--> updating the cache value in phone
+--> adding the delete button
+
+--> check if a didn't user define the program in title
+
+
+--> using canonical for better seo
+--> checking efficient way to cache the static data
+--> cache control header in django build in module
+
+
+
+
+
+
+
+--> using new url to fetch comment, like and rating
+
+--> django caching
+
+--> django sitemap
+
+--> django-clamd use for scanning viruses in uploading files
+
+--> check the security once
+
+# done --> program rating is not working
+# done --> add next to every url
+# done --> creating custom admin panel for all apps admin for arcoders
+# done --> setting up the corrrect hover effect of the language button 
+# done --> typecast total rating into integer
+# done --> program code to txt field
+# done --> adding the new text editor for the codes
+# done --> truncate username to 10 character and small case all the username 
+# done --> redirecting the username to the user profile
+# done --> removing all the box-shadow from the lines
+# done --> otp generator
+# done --> remove langauge phrase from blog
+# done --> reimplement the edit program by implementing the program.id in program_id
+# done --> giving the border to the rating
+# done --> redirect the user from other user to user profile
+# done --> add delete button
+# done --> change 'select language' to 'change langauge'
+# done --> not allowing to change the query in edit_query after the having the answer
+# done --> set language in the language dropdown
+# done --> link username to the user profile
+# done --> handling the js file of rating.js present in the base.html
+# done --> user privacy
+# done --> managing the profile
+# done --> adding the cropper.js for user image
+
+
+# postpond for class basd views --> views count
+# postpond for signal--> notify
+
+
+# no need --> adding the tutorial in search app

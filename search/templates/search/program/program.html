@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Search Programs : ARCODERS
+{% endblock %}
+
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'CSS/category.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/card.css' %}">
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Title -->
+{% include 'search/program/modules/title.html' %}
+
+<section class="col-xs-12 col-sm-6 col-md-12" id = 'program_card_section' style="color: mintcream;">
+
+    <!-- program card -->
+    {% include 'program/program_card.html' %}
+
+
+</section>
+    <!-- paginator -->
+    {% include 'program/paginator.html' %}
+
+{% endblock %}
+
+
+
+{% block js %}
+
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}
+{{user.username}} Query : ARCODERS
+{% endblock %}
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'CSS/category.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/language_selector.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/querybook_card.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<!-- language selector -->
+{% include 'arcoder/user_profile/query/modules/querybook/language_selector.html' %}
+
+<section class="col-xs-12 col-sm-6 col-md-12" style="color: mintcream;">
+        
+    <!-- This is Query card -->
+    {% include 'arcoder/user_profile/query/modules/querybook/querybook_card.html' %}
+<br>
+    <!-- paginator -->
+    {% include 'arcoder/user_profile/query/modules/querybook/paginator.html' %}
+
+</section>
+
+{% endblock %}
+
+
+{% block js %}
+<!-- No js left here -->
+{% endblock %}

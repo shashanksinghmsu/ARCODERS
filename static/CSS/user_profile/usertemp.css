@@ -1,0 +1,201 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap'); */
+
+html {
+    -webkit-font-smoothing: antialiased;
+}
+
+h1 {font-size:40px;}
+h2 {font-size:36px;}
+h3 {font-size:30px;}
+h4 {font-size:24px;}
+h5 {font-size:20px;}
+h6 {font-size:18px;}
+
+h2 {
+  padding-bottom: 14px;
+}
+
+.accent {
+  font-family: 'Proxima Bold';
+  /* line-height: 14px; */
+  color: #60A9F0;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.tm-border {
+	border: 5px solid #fff;
+	box-shadow: 2px 2px #000;
+}
+
+.shadow {
+	text-shadow: 1px 1px #000;
+}
+
+.tm-title {
+    color: dodgerblue;
+}
+.white {
+  color: #fff;
+}
+
+.about,.skills,
+.education,.languages,
+.contact, .experience {
+  padding: 40px;
+  min-height: 330px;
+}
+
+.education, .languages,
+.contact, .experience {
+  margin-top: 30px;
+}
+
+/* 
+@font-face {
+    font-family: 'Proxima Bold';
+    src: url(../fonts/ProximaNova-Bold.otf);
+} */
+
+/* header section */
+.header {
+  text-align: center;
+  min-height: 400px;
+  overflow: hidden;
+  position: relative;
+  padding-top: 160px;
+  padding-bottom: 140px;
+}
+.header img {
+  display: inline-block !important;
+}
+.header h2 {
+  padding-top: 40px;
+  color: dodgerblue;
+}
+.header hr {
+  border-color: dodgerblue;
+    width: 170px;
+    box-shadow: 5px 10px 15px dodgerblue;
+}
+
+/* about section */
+.about {
+  background: #122647;
+  box-shadow: 0px 1px 5px rgba(50,50,50,0.08);
+}
+
+/* skills section */
+.skills {
+  background: #122647;
+  color: dodgerblue;
+}
+.skills .progress {
+  border-radius: 0px;;
+  height: 4px;
+  background: black;
+  border: 1px solid #122647;
+}
+.skills .progress .progress-bar {
+  background: dodgerblue;
+}
+.skills strong {
+  display: inline-block;
+  font-weight: normal;
+  padding-bottom: 6px;
+}
+
+/* education section */
+.education {
+  background: #122647;
+  color: dodgerblue;
+}
+.education .education-content {
+  padding-bottom: 14px;
+}
+.education h5 {
+  display: inline-block;
+}
+.education span {
+  padding-right: 10px;
+  padding-left: 20px;
+}
+
+/* languages section */
+.languages {
+  background:#122647;
+ box-shadow: 0px 1px 5px rgba(50,50,50,0.08);
+}
+.languages ul {
+  padding: 10px;
+}
+.languages ul li {
+  padding-bottom: 6px;
+}
+
+/* contact section */
+.contact {
+  background: #122647;
+ box-shadow: 0px 1px 5px rgba(50,50,50,0.08);
+}
+.contact .fa {
+  padding-right: 6px;
+}
+
+/* experience section */
+.experience {
+  background: #122647;
+  color: dodgerblue;
+}
+
+/* footer section */
+footer {
+  color: #f9f9f9;
+  text-align: center;
+  padding-top: 140px;
+  padding-bottom: 100px;
+}
+
+
+@media ( max-width: 980px ) {
+  .skills {
+    margin-top: 30px;
+  }
+}
+
+@media ( max-width: 360px ) {
+  header h1 {
+    font-size: 30px;
+  }
+  .about h2 {
+    font-size: 24px;
+  }
+  .education h4,
+  .experience h4 {
+    font-size: 20px;
+  }
+.about,.skills,.education,.languages,.contact, .experience {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+}
+
+
+
+/* image.html style */
+    #image-box {
+        max-width: 90%;
+    }
+
+    .upload_alert {
+        background: black;
+        border: 1px solid dodgerblue;
+        color: dodgerblue;
+        font-weight: bold;
+        width: 300px;
+        margin: auto;
+        margin-bottom: 1rem;
+    }

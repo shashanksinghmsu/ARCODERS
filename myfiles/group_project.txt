@@ -1,0 +1,32 @@
+app --> Admin Panel
+            --> security Admin
+                    --> edit user detail
+                    --> restrict user
+                    --> add Advertisement
+                    --> remove negative(hate) post
+    --> User Panel
+            --> sign up
+            --> log in, log out
+            --> user data
+                    --> profile pic
+                    --> username
+                    --> Name
+                    --> Gender
+                    --> age
+                    --> status
+                    --> etc
+            --> user followers
+            --> user following
+            --> user message
+                    --> message like
+            --> user post
+                    --> post tag
+                    --> post like
+                    --> post comment
+                    --> post share
+                    --> post views
+                    --> post bookmarked
+            --> user story
+                    --> tag
+                    --> views
+                    --> story reply

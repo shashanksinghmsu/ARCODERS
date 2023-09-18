@@ -1,0 +1,27 @@
+    .footer_container{
+        border: 1px solid dodgerblue;
+        border-bottom: none;
+        background: #122647;
+        border-radius: 10px 10px 0 0;
+        display: block;
+        max-width: 80%;
+        text-align: center;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .footer-copyright{
+        color: mintcream;
+        font-family: Roboto, monospace, JetBrains Mono;
+    }
+
+    .page-footer{
+        padding-bottom: 0px; 
+        margin-top: 50px;
+    }
+
+    .footer_social_media{
+        margin: 3px !important; 
+        color: dodgerblue;
+    }

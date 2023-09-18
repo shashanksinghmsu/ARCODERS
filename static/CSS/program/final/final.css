@@ -1,0 +1,166 @@
+    .code_card{
+        border: 2px solid mintcream;
+        margin-top: 1.5rem;
+        padding: 11px;
+        border-radius: 10px;
+        margin-bottom: 1.5rem;
+    }
+
+    .commenterName {
+        color: dodgerblue;
+        text-align: start;
+    }
+
+    .cmt {
+        color: whitesmoke;
+    }
+
+
+    /* code styling */
+    .code{
+        border: 1px solid dodgerblue;
+        border-radius: 10px ;
+        background: #122647 !important;
+    }
+
+    .toolbar .toolbar-item button{
+        background: #122647 !important;
+        border: 1px solid dodgerblue !important;
+        margin-right: 0.7rem;
+    }
+    .toolbar .toolbar-item button:hover{
+        background: dodgerblue !important;
+        color: mintcream !important;
+    }
+
+    .rate_card{
+        
+    display: inline-flex;
+    /* width: 50%; */
+    justify-content: flex-end;
+
+    }
+
+    /* this is of total rating */
+    .rating_title{
+        font-family: monospace;
+        width: 95% !important;
+        justify-content: space-between;
+        display: inline-flex;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+/* program_heading style */
+    .code_card_like {
+        font-size: 1rem;
+        margin-right: 3px;
+        color: red;
+        border-radius: 50%;
+        animation: animate 5s linear infinite;
+        cursor: pointer;
+
+    }
+
+    .code_card_unlike {
+        color: dodgerblue;
+        box-shadow: none;
+        border: none;
+        margin-right: 3px;
+        cursor: pointer;
+    }
+
+
+    .rating_title {
+        font-weight: bold;
+        margin-top: 0.7rem;
+        width: 100%;
+        color: dodgerblue;
+        font-size: 1.2rem;
+        margin-bottom: 2px;
+    }
+
+    .progress {
+        background: #122647;
+        height: 5px;
+        margin-right: 10px;
+    }
+
+    .total-rating{
+        margin-bottom: 1rem;
+    }
+
+    .program_title{
+        color: dodgerblue !important;
+        font-weight: bold;
+        text-align:left; 
+        font-family: sans-serif, 'Roboto';
+    }    
+    
+    .language_block{
+        margin: auto;
+        height: 30px;
+    }
+
+    .language_block a{
+        text-decoration: none;
+        font-size: 17px; 
+        font-weight: bold;
+        display: inline-block;
+        color: white; 
+        float: left;
+        margin-left: 25px;
+        font-family: monospace;
+    }
+
+
+    .program_header{
+        display: flex; 
+        margin:10px 1rem; 
+        color: dodgerblue;
+        list-style: none;
+        padding: 0; 
+        font-weight: bold; 
+        font-family: monospace;
+        justify-content: space-between;
+    }
+
+    .coder_name{
+        text-decoration: none; 
+        color: dodgerblue; 
+        cursor: pointer;
+    }
+
+    .hr_mintcream{
+        border: 1px solid mintcream; 
+        margin-top: 10px;
+        box-shadow: none;
+    }
+
+    .card_bottom_container{
+        display: flex; 
+        justify-content: space-between;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+
+    .rate_card p{
+        font-family: monospace;
+        color:dodgerblue;
+        font-size: 1rem;
+        margin-bottom:0;
+        font-weight:bold;
+    }
+
+    .rate_star{
+        color: dodgerblue; 
+        animation: animate 2s linear infinite;
+    }
+
+    .hr_dodgerblue{
+        border: 2px solid dodgerblue; 
+        margin-top: 0px;
+        box-shadow: none; 
+        border-radius:10px;
+    }

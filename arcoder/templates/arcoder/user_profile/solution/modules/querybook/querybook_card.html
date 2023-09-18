@@ -1,0 +1,43 @@
+
+{% for start in data %}
+<article class="search-result row">
+
+	<div class="col-xs-12 col-sm-12 col-md-7 excerpet querybook_card">
+
+		<h3 title="querybook" class="querybook_title">{{start.query.query|capfirst|truncatechars:200}}</h3>
+
+		<hr class="querybook_title_underline">
+
+		<ul class="meta-search querybook_list_block">
+			<li>
+				<a href="{% url 'language' lang=start.query.language %}?next={{request.path}}" class="querybook_language_url">
+					<span class="fa fa-laptop" aria-hidden="true"></span>
+					{{start.query.language|capfirst}}</a>
+			</li>
+		</ul>
+
+		<div class="final_block">
+
+			<p class="answer_count">
+				<span class="fa fa-code code_icon" aria-hidden="true" style="color: mintcream !important;"></span>
+				<span>
+					{{start.query.answer}} Fixes
+				</span>
+			</p>
+
+			<a href="{% url 'edit_solution' language=start.query.language solution_id=start.id %}?next={{request.path}}" class="edit_button">
+				<span class="fa fa-pencil-square-o text-muted p-1 my-1 mr-0 ml-0" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit Program" style=" color: dodgerblue !important;"></span>Edit
+			</a>
+
+
+			<a type="button" href="{% url 'final_query' language=start.query.language query_slug=start.query.slug %}?next={{request.path}}" class="btn btn-primary btn-sm program_final_button">
+				&lt;/Fixes&gt;
+			</a>
+		</div>
+	</div>
+
+	<span class="clearfix borda"></span>
+</article>
+<hr class="col-xs-12 col-sm-12 col-md-9 querybook_line">
+
+{% endfor %}

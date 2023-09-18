@@ -1,0 +1,26 @@
+    .language_selector_dropdown {
+        background: #122647;
+        width: 77vw;
+        color: mintcream;
+        display: inline-block;
+        border: none;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+        font-weight: bold;
+    }
+
+    .language_selector_title {
+        width: 100%;
+        color: dodgerblue;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    
+    #title{
+        margin-bottom: 20px;
+    }
+    .remove_button {
+        padding: 2px 5px;
+        text-decoration: none !important;
+        margin-bottom: 10px;
+    }

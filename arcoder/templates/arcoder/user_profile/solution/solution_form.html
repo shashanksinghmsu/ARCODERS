@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+Update Solution : ARCODERS
+{% endblock %}
+
+{% block head %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'CSS/neon.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/form.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/user_profile/solution/add.css' %}">
+
+<style>
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="contain">
+    <div class="formBx">
+     
+        {% include 'arcoder/user_profile/solution/modules/add/query/form.html'%}
+
+    </div>
+</div> 
+{% endblock %}
+
+
+
+{% block js %}
+
+    
+    {% endblock %}

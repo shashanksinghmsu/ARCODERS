@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %}Home : ARCODERS
+{% endblock %}
+
+{% block head %}
+{% load static %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link rel="stylesheet" href="{% static 'CSS/home.css' %}">
+
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+{% for language in languages %}
+<div class="card promoting-card" title="{{language}}">
+    <div class="card-body d-flex flex-row" style="padding-bottom: 5px; padding-top: 12px;">
+        <div style="margin: auto;">
+            <h4 class="card-title font-weight-bold mb-2" title="{{language}}">
+                <span>
+                    <img src="/media/{{language.image}}" alt="{{language}}" title="{{language}}" style="width: 2rem; height: 2rem;">
+                </span>
+                {{language}}</h4>
+        </div>
+    </div>
+    <hr style="color: mintcream; border: 1px solid mintcream; width: 80%; margin: auto; margin-bottom: 1rem;">
+
+    <!-- Card image -->
+    <div class="view overlay">
+        <img class="card-img-top " src="/media/{{language.image}}" alt="{{language}}" title="{{language}}">
+    </div>
+
+    <!-- Card content -->
+    <div class="card-body">
+        <div class="collapse-content">
+            <div class="card-text collapse" id="{{language.alphaname}}collapseContent">
+                {{language.about|safe}}
+            </div>
+
+            <a class="btn btn-secondary collapsed text-capitalize" data-toggle="collapse"
+                href="#{{language.alphaname}}collapseContent" id="{{language.alphaname}}viewmore" aria-expanded="false"
+                aria-controls="{{language.alphaname}}collapseContent" style="margin-right: 2rem; color: mintcream; font-family: JetBrains Mono, monospace, Roboto;">view more</a>
+
+            <i class="fa fa-heart text-muted float-right p-1 my-1 mr-1 " aria-hidden="true" data-toggle="tooltip"
+                data-placement="top" id="{{language.alphaname}}Like" title="I like it"></i>
+        </div>
+        
+        <a type="button" href="{% url 'language' lang=language.name %}?next={{request.path}}" class="btn btn-primary language-btn"> Go to {{language}} Page</a>
+    </div>
+
+</div>
+
+
+{% endfor %}
+{% endblock %}
+
+
+
+{% block js %}
+<script>
+    {% for language in languages %}
+    $('#{{language.alphaname}}Like').click(function () {
+        $(this).toggleClass("like")
+    });
+
+    $('#{{language.alphaname}}viewmore').click(function () {
+        if ($(this).hasClass("collapsed")) {
+            $(this).text("hide")
+        }
+        else {
+            $(this).text("view more")
+        }
+    })
+
+    {% endfor %}
+</script>
+
+{% endblock %}

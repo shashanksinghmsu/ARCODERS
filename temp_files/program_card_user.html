@@ -1,0 +1,44 @@
+
+{% for start in data %}
+<article class="search-result row ">
+    <div class="col-xs-12 col-sm-12 col-md-7 excerpet program_card">
+
+        <h3 title="Program" class="program_title">
+            {{start.title.title|capfirst|truncatechars:100}}
+        </h3>
+
+        <hr style="border: 1px solid dodgerblue;">
+        <a href="{% url 'language' lang=start.title.language %}?next={{request.path}}" class="program_language_url">
+            <span class="fa fa-laptop" aria-hidden="true"></span>
+            {{start.title.language|capfirst}}
+        </a>
+
+        <div class="lowerData">
+            <p class="program_answer">
+                <span class="fa fa-code code_icon" aria-hidden="true" style="color: mintcream !important;"></span>
+                <span>
+                    {{start.title.answers}} Answer
+                </span>
+            </p>
+
+
+
+            <!-- Edit blog -->
+            <a href="{% url 'edit_program' language=start.title.language program_id=start.id %}" class='edit_program' style="font-weight: bold !important;">
+                <span class="fa fa-pencil-square-o text-muted p-1 my-1 mr-0 ml-0" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit Program" style=" color: dodgerblue !important;"></span>Edit 
+            </a>
+
+
+            <!-- final blog buttons -->
+            <a type="button" href="{% url 'final_program' lang=start.title.language slug=start.title.slug %}?next={{request.path}} " class="btn btn-primary btn-sm arbuttons program_final_button">
+            &lt;/Code&gt;
+            </a>
+        </div>
+    </div>
+
+    <span class="clearfix borda"></span>
+</article>
+<hr class="program_hr col-xs-12 col-sm-12 col-md-9">
+{% endfor %}
+
+

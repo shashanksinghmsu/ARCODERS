@@ -1,0 +1,37 @@
+{% load static %}
+
+<script src="{% static 'js/program/template/program_card.js' %}"></script>
+
+<script>
+    $(document).ready(function () {
+        const program_card_section = document.getElementById('program_card_section');
+        var safe_data = `{{ json_data|safe }}`;
+        var program_data = JSON.parse(safe_data);
+        var title, language, language_url, program_url, answer_count;
+        var html_data = ''
+        var is_particular_language = '{{language}}'
+        var is_user_data = '{{is_user_data}}'
+        var id = null;
+        var is_edit = false;
+        for(var i = 0; i < program_data.length; i++)
+        {   
+            title = cap_first(truncate_string(program_data[i].fields.title, 100));
+            language = program_data[i].fields.language;
+        
+            language_url = `/${language}/` + `?next=${pathname}`;
+            
+            if (is_user_data != ''){   
+                is_edit = true             
+                id = program_data[i].fields.id
+            }
+            answer_count = program_data[i].fields.answers;
+            slug = program_data[i].fields.slug;
+            program_url = `../program/${language}/${slug}/` + `?next=${pathname}`;
+            
+            html_data += card(title, language, language_url, answer_count, program_url, is_edit, id);
+        }
+        var prev_data = program_card_section.innerHTML
+        program_card_section.innerHTML = html_data + prev_data        
+    })
+    
+</script>

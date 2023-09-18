@@ -1,0 +1,25 @@
+/* styling for searched blogs */
+article .col-xs-12 {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+
+
+article .col-sm-12 {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+
+article .col-md-2 {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+
+article div a img {
+    max-width: 160px !important;
+    width: 160px !important;
+    height: auto !important;
+    min-height: 160px !important;
+    object-fit: contain;
+    border-radius: 50%;
+}

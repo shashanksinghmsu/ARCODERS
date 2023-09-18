@@ -1,0 +1,66 @@
+
+{% for start in data %}
+<article class="search-result row ">
+    <div class="col-xs-12 col-sm-12 col-md-7 excerpet program_card" style="margin: auto">
+
+        <h3 title="Program" class="program_title">
+            {{start.title|capfirst|truncatechars:100}}
+        </h3>
+
+        <hr style="border: 1px solid dodgerblue;">
+
+        <a href="{% url 'language' lang=start.language %}?next={{request.path}}" class="program_language_url">
+            <span class="fa fa-laptop" aria-hidden="true" ></span>
+            {{start.language|capfirst}}
+        </a>
+
+        <div class="lowerData">
+            <p class="program_answer">
+                <span class="fa fa-code code_icon" aria-hidden="true" style="color: mintcream !important;"></span>
+                <span>
+                    {{start.answers}} Answer
+                </span>
+            </p>
+
+            <a type="button" href= "{% url 'final_program' lang=start.language slug=start.slug %}?next={{request.path}} " class="btn btn-primary btn-sm arbuttons program_final_button">
+                &lt;/Code&gt;
+            </a>
+        </div>
+    </div>
+
+    <span class="clearfix borda"></span>
+</article>
+<hr class="program_hr col-xs-12 col-sm-12 col-md-9">
+{% endfor %}
+
+
+
+
+
+
+
+{% for start in data %}
+
+{% block title %}
+start.title
+{% endblock %}
+
+
+{% block language_url %}
+url 'language' lang=start.language ?next={{request.path}}
+{% endblock %}
+
+{% block language%}
+{{start.language|capfirst}}
+${language}
+{% endblock %}
+
+{% block answer_count %}
+{{start.answers}}
+{% endblock %}
+
+{% block code_url %}
+url 'final_program' lang=start.language slug=start.slug ?next={{request.path}}
+{% endblock %}
+
+{% endfor %}

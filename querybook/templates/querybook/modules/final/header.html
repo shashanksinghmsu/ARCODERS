@@ -1,0 +1,27 @@
+<h3 class="mt-4 query_title" id = 'query_title_data'>
+</h3>
+
+   <div class="query_header_1" >
+            <a href="{% url 'language' lang=query.language %}?next={{request.path}}" class="query_language">
+                <span class="fa fa-laptop" aria-hidden="true"></span>
+                {{query.language|title}}</a>
+            <div id="answer_count" class="answer_count"></div>
+        </div>
+<hr class="hr_dodgerblue">
+
+
+<ul class="meta-search query_info" id = 'query_info'>
+</ul>
+
+<hr class="hr_dodgerblue">
+
+<div class="description_card" >
+
+    <h3 title="querybook" class="querybook_desc" >Qurey Description</h3>
+    <hr class="querybook_desc_underline">
+    <p id="query_description" class="query_description">
+    </p>
+</div>
+
+
+

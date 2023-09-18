@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}{{user.username}} : ARCODERS
+{% endblock %}
+
+{% block head %}
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+<link rel="stylesheet" href="{% static 'CSS/user_profile/scroll.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/user_profile/other_style.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/user_profile/usertemp.css' %}">
+{% endblock %}
+{% block content %}
+
+{% include 'arcoder/user_profile/update_modal.html' %}
+{% include 'arcoder/user_profile/privacy_modal.html' %}
+{% include 'arcoder/user_profile/image.html' %}
+
+
+
+{% include 'arcoder/user_profile/header.html' %}
+
+
+<section class="container">
+    <div class="row">
+        {% include 'arcoder/user_profile/profile_info.html' %}
+
+        {% include 'arcoder/user_profile/performance.html' %}
+        
+    </div>
+</section>
+
+<!-- contact and experience -->
+<section class="container">
+    <div class="row">
+        
+        {% include 'arcoder/user_profile/description.html' %}
+
+        {% include 'arcoder/user_profile/rating.html' %}
+       
+    </div>
+</section>
+
+
+{% endblock %}
+
+
+
+{% block js %}
+
+
+<script type="text/javascript" src="{% static 'js/user_profile/user_profile.js' %}"></script>
+
+{% endblock %}

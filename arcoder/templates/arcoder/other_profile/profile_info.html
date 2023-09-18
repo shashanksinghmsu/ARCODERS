@@ -1,0 +1,57 @@
+
+
+<div class="col-md-8 col-sm-12">
+    <div class="education arBox">
+        <h2>Profile Info</h2>
+        <div class="education-content">
+            <table style="text-align: start;margin: auto;">
+                <tr>
+                    <td style="width: 25%; font-weight: bold; ">
+                        Username
+                    </td>
+                    <td class="data" style="width: 60%;padding-left: 15px;font-weight: bold;">
+                        <div class="scroller">{{user_obj.username}}</div>
+                    </td>
+                    </tr>
+
+
+                <tr>
+                    <td>Name</td>
+                    <td style="padding-left: 15px;" class="data">
+                        <div class="">
+                            <div class="scroller" style="color: dodgerblue;font-size: 106.5%;  margin: 0;">
+                                {{user_obj.first_name}} {{user_obj.last_name}} 
+                            </div>
+                        </div>
+                    </td>
+                    </tr>
+
+
+                <tr>
+                    <td>Email</td>
+                    <td class="data" style="padding-left: 15px;">
+                        <div class="scroller">{{user_obj.email}}</div>
+                    </td>
+                    </tr>
+
+
+                <tr>
+                    <td>DOB</td>
+                    <td class="data" style="padding-left: 15px;">
+                        <div class="scroller">{{user_data.dob}}</div>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Gender</td>
+                    <td class="data" style="padding-left: 15px;">
+                        <div class="scroller">{{user_data.gender}}</div>
+                    </td>
+                </tr>
+
+
+            </table>
+        </div>
+    </div>
+</div>

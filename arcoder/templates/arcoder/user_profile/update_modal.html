@@ -1,0 +1,81 @@
+<style>
+    .label {
+        font-size: 30px;
+        padding-right: 5px;
+        color: dodgerblue;
+    }
+</style>
+
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background: black; border: 2px solid dodgerblue;">
+            <div class="modal-header" style="color: dodgerblue; border-bottom: 2px solid dodgerblue;">
+                <h5 class="modal-title" id="updateModal">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color: dodgerblue;">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="align-self: center;">
+                <form method="post" id="update">
+                    <!-- action="% url 'userLogin' % "> -->
+                    {% csrf_token %}
+                    <div class="form-group" style="margin-bottom: 15px;display: flex;">
+                        <!-- <label for="exampleInputEmail1">Email address</label> -->
+                        <label for="previousData" class="fa fa-minus-circle mt-1 label"> </label>
+                        <input type="text" style="font-weight: bold;" class="form-control loginStyle" id="previousData"
+                            aria-describedby="UsernameHelp" name="previousData">
+                    </div>
+                    <div class="form-group new-data" style="margin-bottom: 15px;display: flex;">
+                        <label for="newData" class="fa fa-plus-circle mt-1 label"> </label>
+                        <input type="text" class="form-control loginStyle" style="font-weight: bold;" id="newData"
+                            name="newData">
+                    </div>
+                    <div class="modal-footer" style="border-top: 2px solid dodgerblue;">
+                        <button type="button" class="btn arbuttons" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn arbuttons">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    // checking for new username is available or not
+        $("#newData").keyup(function () {
+            if ($('#newData').hasClass('username')) {
+
+
+                var username = $(this).val();
+                if (username != "") {
+                    $.ajax({
+                        url: '{% url 'username_check' %}',
+                        type: 'POST',
+                        data: { username: username }
+                    }).done(function (response) {
+                        console.log(response);
+                        if (response == "True") {
+                            $(".username-status").remove();
+                            $("<small class='username-status' style='padding: 5px;color: dodgerblue;font-weight: bolder;font-size:90%;'>Not Available</small>").insertAfter(".new-data");
+                        }
+                        else {
+                            $(".username-status").remove();
+                            $("<small class='username-status' style='padding: 5px;color: dodgerblue;font-weight: bolder;font-size:90%;'>Available</small>").insertAfter(".new-data");
+                        }
+                    })
+                        .fail(function () {
+                            console.log("failed");
+                        })
+                }
+                else {
+                    $(".username-status").remove();
+                    console.log("done")
+                }
+            }
+        });
+
+</script>

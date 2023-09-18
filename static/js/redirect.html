@@ -1,0 +1,71 @@
+<!-- This will redirect pwa app to home -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCODERS</title>
+    <style>
+        body{
+            background: black;
+            height: 100%;
+            width: 95vw;
+            margin: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .container{
+            margin: auto;
+            margin-top: 1rem;
+            border: 2px solid dodgerblue;
+            display: flex;
+            align-items: center;
+            height: 95vh;
+            width: 90vw;
+
+
+        }
+        .title_pwa{
+            margin: auto;
+            padding: auto;
+            text-align: center;
+            background: black;
+            color: dodgerblue;
+            font-size: 1.5rem;
+            font-family: monospace;
+            /* display: flex;
+            align-items: center; */
+        }
+
+        img{
+            width: 50vw;
+            height: 50vw;
+            margin-top: 10vh;
+            max-width: 350px;
+            max-height: 350px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title_pwa">
+            <img src="/static/images/logo/test.png" alt="ARCODERS">
+            <h1>
+                ARCODERS
+            </h1>        
+        </div>
+    </div>
+
+</body>
+</html>
+    <script>
+        window.onload = function () {
+
+            setTimeout(() => { location.replace('/') }, 1200);
+            }
+    </script>
+
+

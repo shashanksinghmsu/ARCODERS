@@ -1,0 +1,91 @@
+
+
+<form class="contactForm" name="post" method="post" action="{% url 'edit_query' language=query.language query_id=query.id %}?next={{request.path}}" style="width: 100%;height:100%;" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    <h2 id="title">
+        Update Your Query
+    </h2>
+
+    <a type="button" class="arbuttons remove_button" href="{% url 'remove_query' query_id=query.id %}">
+        Remove Query
+    </a>
+
+
+
+    <hr style="border: 1px solid dodgerblue; box-shadow: none; margin-top: 10px;margin-bottom: 10px;">
+
+    <br>
+    <br>
+    <div class="inputBox">
+        {{form.query}}
+        <span style="font-size: 1rem; font-weight: bold;">Query</span>
+    </div>
+
+
+    <div class="inputBox" style="display: inline-flex;width: 100%; margin-bottom: 10px;">
+        <h5 class="language_selector_title">
+            Change the Language:
+        </h5>
+
+        <select name="language" id="langName" class="language_selector_dropdown">
+            {% for lang in languages %}
+                {% if lang.name == query.language %}
+                    <option value="{{query.language}}" style="font-weight: bold;" selected>
+                        {{query.language}}
+                    </option>
+                {% else %}
+                    <option value="{{lang.name}}" style="font-weight: bold;">
+                        {{lang.name}}
+                    </option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+
+
+
+    <div style="width: 100%;text-align: left; margin-bottom:1rem; margin-top: 2rem;">
+        <p style=" color: dodgerblue;margin-bottom: 0.8rem; font-size: 1rem; font-weight: bold;">
+            Update Your Description Below
+        </p>
+        {{form.description|safe}}
+        {{form.media}}
+    </div>
+
+
+    <div>
+        <button class="arsubmit" type="submit" style="background: transparent;border: none;">
+            <a class="neon" type="submit" style="color: dodgerblue; cursor: pointer;">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                POST
+            </a>
+        </button>
+    </div>
+</form>
+
+
+
+<script>
+    $(".neon").mouseover(function () {
+        $(".neon").css("color", "#122647");
+    });
+
+
+    $(".neon").mouseout(function () {
+        $(".neon").css("color", "dodgerblue");
+    });
+
+    $(".contactForm").submit(function (e) {
+        var form = this;
+        e.preventDefault();
+
+        setTimeout(function () {
+            form.submit()
+        }, 1200)
+    }) 
+</script>

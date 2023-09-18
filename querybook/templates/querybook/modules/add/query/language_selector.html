@@ -1,0 +1,33 @@
+
+
+<form method="post" id="languageSelect" action="{% url 'querybook_add' lang='Change' %}?next={{request.path}} ">
+    {% csrf_token %}
+
+    <div class="inputBox" style="display: inline-flex;width: 100%; margin-bottom: 10px;">
+
+        <h5 style="width: 100%; color: dodgerblue;" class="language_selector_title">
+            Select the Language:
+        </h5>
+
+        <select name="language_name" id="langName" class="language_selector_dropdown">
+
+            {% for lang in languages %}
+                {% if lang.name == language.name %}
+                    <option value="{{language.name}}" style="font-weight: bold;" selected>
+                        {{language.name}}
+                    </option>
+                {% else %}
+                    <option value="{{lang.name}}" style="font-weight: bold;">
+                        {{lang.name}}
+                    </option>
+                {% endif %}
+            {% endfor %}
+
+        </select>
+
+        <button class="txt-color" id="langButton" style="border: 1px solid dodgerblue;background:#122647;">
+            Change
+        </button>
+
+    </div>
+</form>

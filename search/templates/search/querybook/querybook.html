@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Search Querybook : ARCODERS
+{% endblock %}
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'CSS/category.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/querybook_card.css' %}">
+
+
+{% endblock %}
+
+{% block content %}
+
+    <!-- title -->
+    {% include 'search/querybook/modules/title.html' %}
+
+<section class="col-xs-12 col-sm-6 col-md-12" style="color: mintcream;">
+        
+    <!-- This module also handle the js code of liking and disliking of blog -->
+    {% include 'search/querybook/modules/querybook_card.html' %}
+<br>
+    <!-- paginator -->
+    {% include 'search/querybook/modules/paginator.html' %}
+
+</section>
+
+{% endblock %}
+
+
+{% block js %}
+<!-- No js left here -->
+{% endblock %}

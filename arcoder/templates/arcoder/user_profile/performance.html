@@ -1,0 +1,37 @@
+<div class="col-md-4 col-sm-12">
+    <div class="languages arBox">
+        <h2 style="overflow-x: scroll;" class="scroller headerscroll">Performance</h2>
+        <table style="text-align: start;margin: auto; width: 70%; ">
+
+
+            <!-- Program -->
+            <tr>
+                <th>Programs</th>
+                <th>{{user_data.programs}}</th>
+                <th style="padding-left: 20px;"><a href="{% url 'user_program' %}?next={{request.path}}" type="button"
+                        style="text-decoration: none;"><i title="Go to Programs" class="fa fa-arrow-circle-right"
+                            aria-hidden="true"></i></a></th>
+            </tr>
+
+
+            <!-- Query -->
+            <tr>
+                <th>Querys</th>
+                <th>{{user_data.querys}}</th>
+                <th style="padding-left: 20px;"><a href="{% url 'user_query' %}?next={{request.path}}" type="button"
+                        style="text-decoration: none;"><i title="Go to QueryBook" class="fa fa-arrow-circle-right"
+                            aria-hidden="true"></i></a></th>
+            </tr>
+
+            <!-- Solutions -->
+            <tr>
+                <th>Solutions</th>
+                <th>{{user_data.solutions}}</th>
+                <th style="padding-left: 20px;"><a href="{% url 'user_solution' %}?next={{request.path}}" type="button"
+                        style="text-decoration: none;"><i title="Go to QueryBook" class="fa fa-arrow-circle-right"
+                            aria-hidden="true"></i></a></th>
+            </tr>
+
+        </table>
+    </div>
+</div>

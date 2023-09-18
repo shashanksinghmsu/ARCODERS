@@ -1,0 +1,22 @@
+
+{% load static %}
+{% load apptags %}
+                 
+<nav class="navegacion">
+    <ul class="menu slide_scroller" id='sidebar_button_container'>
+        <li class="title-menu">
+            <img src="{% static 'images/logo/test.png'%}" alt="ARCODERS" class="slidebar-logo">
+            <span class="title-arcoders">ARCODERS</span>
+        </li>
+        <li>
+            <a href="/">
+                <span class="fa fa-home icon-menu"></span>
+                Home
+            </a>
+        </li>
+                
+    </ul>
+</nav>
+
+<script src="{% static 'js/slidebar/slidebar.js' %}"></script>
+<script src="{% static 'js/slidebar/slidebar-language.js' %}"></script>

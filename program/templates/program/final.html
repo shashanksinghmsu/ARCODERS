@@ -1,0 +1,297 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Program : ARCODERS
+{% endblock %}
+
+{% block head %}
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'CSS/prism.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/program/scroll.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/program/final/final.css' %}">
+    <script type="text/javascript" src="{% static 'js/program/final.js' %}"></script>
+
+{% endblock %}
+
+
+{% block content %}
+    <div class="container" id = 'final_page_container'>
+
+        <div class="row">
+
+            <div class="col-lg-2"></div>
+            <!-- Post Content Column -->
+            <div class="col-lg-8" id="program_data_column">
+                {% include 'program/modules/final/header.html' %}
+
+                {% if user.is_authenticated %}
+                    <!-- for adding the solution -->
+                    <link rel="stylesheet" href="{% static 'CSS/form.css' %}">
+                    <link rel="stylesheet" href="{% static 'CSS/program/final/add_solution.css' %}">                
+                {% endif %}
+
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+
+{% endblock %}
+
+
+
+{% block js %}
+    <script>
+        var like_script = document.createElement("script");
+        like_script.type = 'text/javascript'
+        var rating_js = document.createElement('script')
+        
+
+
+    $(document).ready(function () {
+        var element = document.getElementById('program_data_column')
+
+        var answer_id, answer_count
+        // title data
+        $.ajax({
+            url: '{% url 'program_data' slug=slug %}',
+            type: 'GET',
+            data: {}
+        }).done(function (response) {
+            answer_id = response.programs.id
+            answer_count = response.answer_count
+            var prism_name = response.prism_name
+            auth = response.user_auth
+
+            // setting the title
+            var set_title_name = document.getElementById('program_title_data')
+            set_title_name.innerHTML = cap_first(response.title)
+                        
+
+
+            // program data
+            for (let i = 0; i < answer_id.length; i++) {
+
+
+                var program_header = ` 
+                    <div class = 'code_card'>
+                        <ul class="meta-search program_header">
+                            <li>
+                                <span class="fa fa-calendar" aria-hidden="true"></span> 
+                                <span>
+                                    ${ response.programs.time_stamp[i] }
+                                </span>
+                            </li>
+                                
+                            <li>
+                                <a href="/user/${response.programs.author[i]}/" class="coder_name">
+                                    <span class="fa fa-user" aria-hidden="true"></span>
+                                    <span>
+                                        ${truncate(response.programs.author[i])}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <hr class="hr_mintcream">`
+
+
+            var total_rating = `
+                <div class="total-rating">
+                    <p class="rating_title">
+                        <span>
+                            Total Rating
+                        </span>
+                        <span>
+                            ${response.programs.total_rating[i][0]}/100
+                        </span>
+                    </p>
+
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="${response.programs.total_rating[i][0]}" aria-valuemin="0" aria-valuemax="100" style="width: ${response.programs.total_rating[i][0]}%;"></div>
+                    </div>
+                </div>`
+
+
+            var code = `
+                <body class="line-numbers">
+                    <pre class="code"><code class="language-${prism_name}">${response.programs.code[i].slice(6,-7)}</code>
+                    </pre>
+                </body>
+                `
+                console.log(response.programs.code[i])
+
+            like_js = `
+                document.getElementById("like${response.programs.id[i]}").addEventListener('click', function(){
+                    $.ajax({
+                        url: '/program/like/',
+                        type: 'POST',
+                        data: { id: ${ response.programs.id[i] }}
+                    }).done(function (response) {
+                            console.log(response)
+                            if (response == "True") {
+                                $(".liked${response.programs.id[i]}").removeClass('code_card_unlike');
+                                $(".liked${response.programs.id[i]}").addClass('code_card_like');
+                                like_count = parseInt($(".like_count${response.programs.id[i]}").text())
+                                $(".like_count${response.programs.id[i]}").text(like_count + 1 + ' like${add_s(response.programs.like_count[i])}');
+                                }
+                            else {
+                                $(".liked${response.programs.id[i]}").addClass('code_card_unlike');
+                                $(".liked${response.programs.id[i]}").removeClass('code_card_like');
+                                like_count = parseInt($(".like_count${response.programs.id[i]}").text())
+                                $(".like_count${response.programs.id[i]}").text(like_count - 1 + ' like${add_s(response.programs.like_count[i])}');
+                            }
+                        })
+                    .fail(function () {
+                        console.log("failed");
+                    })
+            }); `
+        
+            like_script.innerHTML += like_js
+            append_element = document.getElementById('final_page_container')
+                                        
+            if (auth == true)
+            {
+                var rating_data = `
+                    <div class="card_bottom_container">
+                        ${like_html(response.like_data[i], response.programs.id[i], response.programs.like_count[i])}
+
+                    <div class="mb-3 rate_card">
+                        <p>
+                            rate&nbsp; 
+                        </p>
+        
+                        <div id="halfstarsReview${response.programs.id[i]}" class="rate_star"></div>
+
+                    </div>
+
+                    <input type="text" readonly id="halfstarsInput${response.programs.id[i]}" class="form-control form-control-sm" hidden value=${response.rating[i]}>
+
+                </div>
+            </div> `
+
+            rating_js.innerHTML += `
+                $("#halfstarsReview${response.programs.id[i]}").rating({
+                    "half": true,
+                    "click": function (e) {
+                        $("#halfstarsInput${response.programs.id[i]}").val(e.stars);
+                        var code_id = ${ response.programs.id[i]
+                        }
+
+                    $.ajax({
+                        url: '/program/rating/',
+                        type: 'POST',
+                        data: {
+                            id: code_id,
+                            rate: $("#halfstarsInput${response.programs.id[i]}").val()
+                            }
+                        }).done(function (response) {
+                            if (response == "True") 
+                            {
+                                message('Program SuccessFully Rated!!!')
+                            }
+                            else 
+                            {
+                                message('Program Rating Failed!!!')
+                            }
+                        })
+                        .fail(function () {
+                                    console.log("failed");
+                            })
+                        }
+                    });
+
+
+
+                var rate = $('#halfstarsInput${response.programs.id[i]}').val()
+                var temp_string = "#halfstarsReview${response.programs.id[i]} i:nth-child("
+                for (var i = 1; i <= rate; i++) {
+                    var str1 = temp_string.concat(i)
+                    var str = str1.concat(')')
+                    $(str).removeClass('fa-star-o')
+                    $(str).addClass('fa-star')
+                }
+
+                if (rate -(i - 1) == 0.5) {
+                    var str1 = temp_string.concat(i)
+                    var str = str1.concat(')')
+                    $(str).removeClass('fa-star-o')
+                    $(str).addClass('fa-star-half-o')
+                }  `
+
+
+            
+        }
+        else{
+            rating_data = `
+                <div class="card_bottom_container">
+                    ${like_html(response.like_data[i], response.programs.id[i], response.programs.like_count[i])}
+                </div>
+                </div >`
+            }
+
+
+        var finishing_line = `<hr class="hr_dogerblue">`
+
+        element.innerHTML = element.innerHTML + program_header + total_rating + code + rating_data + finishing_line
+
+            if (auth == true & i==(answer_count-1))
+            {
+                setTimeout(function () {
+                    append_element.appendChild(like_script);
+                }, 4000);
+
+            
+                setTimeout(function () {
+                    append_element.appendChild(rating_js);
+                }, 4000);
+
+            }
+        }
+
+        setTimeout(function () {
+            var prism_js = document.createElement('script')
+            prism_js.src = '/static/js/prism.js'
+            element.appendChild(prism_js)                    
+        }, 4000);
+    
+        if (auth == true){
+            
+            var add_solution = `
+                <form class="contactForm" name="post" method="post" action="{% url 'program_form' %}?next={{request.path}} " style="width: 100%;padding:initial; margin-top:3rem;" enctype="multipart/form-data">
+                    {% csrf_token %}
+        
+                    <input type="text" name="language" value="${response.language}" hidden>
+
+                    <!-- title hidden -->
+                    <input type="text" name="{{form.title.name}}" value="{{form.title.value}}" hidden>
+        
+        
+                    <div class="solution_form">
+                        <label for="id_code" style="width: 100%;">
+                            <p style="color: dodgerblue; font-family: sans-serif, 'Roboto';">
+                                Add Your Code Here
+                            </p>
+                            {{form.code|safe}}
+                        </label>
+                    </div>
+
+                    <button class="arbuttons" type="submit">Add Solution</button>
+                </form>`
+
+            setTimeout(function () {
+                element.innerHTML += add_solution
+            }, 3000);
+        }
+            
+        })
+        .fail(function () {
+            console.log("failed");
+        })
+    })
+
+
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,80 @@
+
+
+<form class="contactForm" name="post" method="post" action="{% url 'edit_solution' language=solution.query.language solution_id=solution.id %}?next={{request.path}}"
+    style="width: 100%;height:100%;" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    <h2 id="title">
+        Update Solution
+    </h2>
+
+    <a type="button" class="arbuttons remove_button" href="{% url 'remove_solution' solution_id=solution.id %}">
+        Remove Solution
+    </a>
+
+
+    <hr style="border: 1px solid dodgerblue; box-shadow: none; margin-top: 10px;margin-bottom: 10px;">
+
+    <br>
+    <br>
+
+
+    <div class="inputBox">
+        <input type="text" value="{{solution.query.query}}" autofocus readonly>
+        <span>Query</span>
+    </div>
+
+
+
+
+    <div style="width: 100%;text-align: left; margin-bottom:1rem; margin-top: 2rem;">
+        <p style=" color: dodgerblue;margin-bottom: 0.8rem; font-size: 1rem; font-weight: bold;">
+            Update Your Solution Below
+        </p>
+        {{form.solution|safe}}
+        {{form.media}}
+    </div>
+
+
+    <div>
+        <button class="arsubmit" type="submit" style="background: transparent;border: none;">
+            <a class="neon" type="submit" style="color: dodgerblue; cursor: pointer;">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                POST
+            </a>
+        </button>
+    </div>
+</form>
+
+
+
+<script>
+    $(".neon").mouseover(function () {
+        $(".neon").css("color", "#122647");
+    }
+
+    );
+
+    $(".neon").mouseout(function () {
+        $(".neon").css("color", "dodgerblue");
+    }
+
+    );
+
+    $(".contactForm").submit(function (e) {
+        var form = this;
+        e.preventDefault();
+
+        setTimeout(function () {
+            form.submit()
+        }
+
+            , 1200)
+    }
+
+    ) 
+</script>

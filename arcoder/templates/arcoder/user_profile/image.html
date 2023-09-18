@@ -1,0 +1,116 @@
+
+
+<!-- modal -->
+<div class="modal fade" id="image_modal" tabindex="-1" role="dialog" aria-hidden="true"
+    aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Update Image
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color: dodgerblue">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div>
+                    <div id="alert-box"></div>
+                    <div id="image-box" class="mb-3"></div>
+
+                </div>
+                <div style="color: rgb(193, 205, 216); display: flex; margin: 1rem auto;">
+                    <form action="{% url 'upload_image' %}" id='image-form' method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="file" id="id_image" name="image" accept="image/png, image/jpeg" required
+                            style="text-align: right;">
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <a type="button" class="btn arbuttons" href="{% url 'remove_image' %}"  title="It will switch to default image">default</a>
+                    <button type="submit" class="btn arbuttons not-visible" id="confirm-btn">Update</button>
+                    <button type="button" class="btn arbuttons" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropper/4.1.0/cropper.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/4.1.0/cropper.min.css">
+
+<script>
+    const alertBox = document.getElementById('alert-box')
+        const imageBox = document.getElementById('image-box')
+        const imageForm = document.getElementById('image-form')
+        const confirmBtn = document.getElementById('confirm-btn')
+        const input = document.getElementById('id_image')
+
+        const csrf = document.getElementsByName('csrfmiddlewaretoken')
+
+        input.addEventListener('change', () => {
+            alertBox.innerHTML = ""
+            confirmBtn.classList.remove('not-visible')
+            const img_data = input.files[0]
+            const url = URL.createObjectURL(img_data)
+
+            imageBox.innerHTML = `<img src="${url}" id="image" width="400px" height="200px">`
+            var $image = $('#image')
+            console.log($image)
+
+            $image.cropper({
+                aspectRatio: 12 / 16,
+                crop: function (event) {
+                    console.log(event.detail.x);
+                    console.log(event.detail.y);
+                    console.log(event.detail.width);
+                    console.log(event.detail.height);
+                    console.log(event.detail.rotate);
+                    console.log(event.detail.scaleX);
+                    console.log(event.detail.scaleY);
+                }
+            });
+
+            var cropper = $image.data('cropper');
+            confirmBtn.addEventListener('click', () => {
+                cropper.getCroppedCanvas().toBlob((blob) => {
+                    console.log('confirmed')
+                    const fd = new FormData();
+                    fd.append('csrfmiddlewaretoken', csrf[0].value)
+                    fd.append('image', blob, 'my-image.png');
+
+                    $.ajax({
+                        type: 'POST',
+                        url: {% url 'upload_image' %},
+                        enctype: 'multipart/form-data',
+                        data: fd,
+                        success: function (response) {
+                            console.log('success', response)
+                            alertBox.innerHTML = `<div class="alert alert-success message upload_alert" role="alert">
+                                            Successfully saved and cropped the selected image
+                                        </div>`
+                            message('Your Profile Picture is successfully Updated!!!')
+
+                            setTimeout(function () {
+                                window.location.href = '/user/'
+                            }, 200);
+
+
+                        },
+                        error: function (error) {
+                            console.log('error', error)
+                            alertBox.innerHTML = `<div class="alert alert-danger upload_alert" role="alert">
+                                            Ups...something went wrong
+                                        </div>`
+                        },
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                })
+            })
+        })
+    })
+
+</script>

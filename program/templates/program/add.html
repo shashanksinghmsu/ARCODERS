@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Add Program : ARCODERS
+{% endblock %}
+
+{% block head %}
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link rel="stylesheet" href="{% static 'CSS/neon.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/form.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/add.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/language_selector.css' %}">
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="contain">
+    <div class="formBx">
+        {% include 'program/modules/add/language_selector.html'%}
+
+        {% include 'program/modules/add/form.html'%}
+
+    </div>
+</div> 
+{% endblock %}
+
+
+
+{% block js %}
+
+<script type="text/javascript" src="{% static 'js/program/add.js' %}"></script>
+    
+    {% endblock %}

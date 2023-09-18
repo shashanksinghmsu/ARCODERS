@@ -1,0 +1,40 @@
+<form class="contactForm" name="post" method="post" action="{% url 'query_form'  %}?next={{request.path}} " enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <hr class="hr_dogerblue">
+    <input type="text" name="language" value="{{language}}" hidden>
+
+    <h2 id="title">
+        Add Query in {{ language}} {{cat}}
+    </h2>
+
+    <div class="inputBox"> 
+        {{form.query}}
+        <span>
+            Query
+        </span>
+    </div>
+
+    <div class="input_form_box">
+        <p>
+            Enter Your Description Below
+        </p>
+        
+        {{form.description|safe}}
+        {{form.media}}
+
+    </div>
+
+    <div>
+        <button class="arsubmit form_submit" type="submit">
+            <a class="neon" type="submit">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                POST
+            </a>
+        </button>
+    </div>
+</form>
+

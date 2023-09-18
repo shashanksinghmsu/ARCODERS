@@ -1,0 +1,52 @@
+<div class="col-md-4 col-sm-12">
+    <div class="languages arBox">
+
+        <h2 style="overflow-x: scroll;" class="scroller headerscroll">
+            Performance
+        </h2>
+
+        <table style="text-align: start;margin: auto; width: 70%; ">
+    
+            <!-- Program -->
+            <tr>
+                <th>Programs</th>
+                <th>{{user_obj.programs}}</th>
+
+                <th style="padding-left: 20px;">
+                    <a href="{% url 'other_program' username=user_obj.username %}?next={{request.path}}" type="button" style="text-decoration: none;">
+                        <i title="Go to Programs" class="fa fa-arrow-circle-right" aria-hidden="true">
+                        </i>
+                    </a>
+                </th>
+            </tr>
+
+    
+            <!-- Query -->
+            <tr>
+                <th>Querys</th>
+                <th>{{user_obj.querys}}</th>
+
+                <th style="padding-left: 20px;">
+                    <a href="{% url 'other_query' username=user_obj.username %}?next={{request.path}}" type="button" style="text-decoration: none;">
+                        <i title="Go to QueryBook" class="fa fa-arrow-circle-right" aria-hidden="true">
+                        </i>
+                    </a>
+                </th>
+            </tr>
+
+            <!-- Solutions -->
+            <tr>
+                <th>Solutions</th>
+                <th>{{user_obj.solutions}}</th>
+
+                <th style="padding-left: 20px;">
+                    <a href="{% url 'other_solution' username=user_obj.username %}?next={{request.path}}" type="button" style="text-decoration: none;">
+                        <i title="Go to QueryBook" class="fa fa-arrow-circle-right" aria-hidden="true">
+                        </i>
+                    </a>
+                </th>
+            </tr>
+
+        </table>
+    </div>
+</div>

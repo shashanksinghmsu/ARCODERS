@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up : ARCODERS
+{% endblock %}
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'CSS/neon.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/form.css' %}">
+
+<style>
+    .username-status {
+        padding: 5px;
+        color: dodgerblue;
+        font-weight: bolder;
+        font-size: 90;
+    }
+</style>
+
+{% endblock %}
+{% block content %}
+<div class="contain" style="margin-top: 80px; height: auto; padding-top: 5vh;padding-bottom: 5vh;">
+    <div class="formBx">
+
+        <form class="contactForm" method="post" action="{% url 'sign_up' %}?next={{request.path}} ">
+            {% csrf_token %}
+            <h2>Create Account</h2>
+            <div class="inputBox">
+                <input type="text" readonly onfocus="this.removeAttribute('readonly');" name="fname" required>
+                <span>First Name</span>
+            </div>
+            <div class="inputBox">
+                <input type="text" readonly onfocus="this.removeAttribute('readonly');" name="lname" required>
+                <span>Last Name</span>
+            </div>
+
+            <div class="inputBox">
+                <input id="username" type="text" style="" readonly onfocus="this.removeAttribute('readonly');"
+                    name="username" required>
+                <span>Username</span>
+                <br id="username-label">
+            </div>
+
+
+
+            <div class="inputBox">
+
+                <select name="gender"
+                    style="background: transparent; color: rgba(255,255,255,0.5); display: inline-block;width: 100%; border: none; border-bottom: 2px solid rgba(255,255,255,0.5);">
+                    <option value="male" selected>Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="inputBox">
+                <input type="date" id="DOB" name="DOB" required style="width: 70% !important;"> 
+                <span>DOB</span>
+            </div>
+
+            <div class="inputBox">
+                <input type="email" id="email" name="email" readonly onfocus="this.removeAttribute('readonly');"
+                    required>
+                <span id="spanEmail">Email</span>
+            </div>
+
+
+            <div class="inputBox">
+                <input type="password" name="password1" required>
+                <span>Password</span>
+            </div>
+
+            <div class="inputBox">
+                <input class="test" type="password" name="password2" required>
+                <span>Re-Enter Password</span>
+            </div>
+
+            <!-- 
+      <div class="inputBox">
+          <button type="submit" value="Submit">signup</button>
+        </div> -->
+            <div>
+                <button class="arsubmit" type="submit" style="background: transparent;border: none;">
+                    <a class="neon" type="submit" style="color: dodgerblue; cursor: pointer;">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        CREATE ACCOUNT
+                    </a>
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block js %}
+
+
+<script type="text/javascript" src="{% static 'js/sign_up.js' %}"></script>
+
+{% endblock %}

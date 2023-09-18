@@ -1,0 +1,41 @@
+{
+    "name": "ARCODERS",
+    "short_name": "ARCODERS",
+    "start_url": "./redirect.html",
+    "display": "standalone",
+    "background_color": "#000",
+    "theme_color" : "#1e90ff",
+    "description": "Here you get the stuff related to programming. We provide programs and query solutions related to diffrent programming languages.",
+    "icons": [
+        {
+            "src": "pwa_icons/test_48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "pwa_icons/test_72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "pwa_icons/test_96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "pwa_icons/test_144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "pwa_icons/test_168.png",
+            "sizes": "168x168",
+            "type": "image/png"
+        },
+        {
+            "src": "pwa_icons/test_192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}

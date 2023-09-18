@@ -1,0 +1,19 @@
+:root{
+    --background_color:#122647;
+    --border_color:dodgerblue;
+    --text_color:white;
+}
+.navbar {
+    margin-top: 74px;
+    /* padding-top: 13px; */
+    outline: 1px solid var(--border_color);
+    background: var(--background_color);
+   justify-content: space-between;
+   font-family: Roboto;
+   padding: 0 1rem;
+}
+
+
+#language_navigation, #categories{
+    padding-left: 10px !important;
+}

@@ -1,0 +1,76 @@
+<style>
+/* add query styling */
+.add_query{
+    border-radius: 50%;
+    /* margin-bottom: 1rem; */
+}
+
+.add_query_hover{
+    border-radius: 10px !important;
+}    
+</style>
+
+
+
+<hgroup class="mb20" style="margin-top: 40px;">
+
+    <h1 class="language_selector_title">
+        My Solution in QueryBook
+    </h1>
+
+    <form method="post" id="languageSelect" action="{% url 'user_solution' %}?next={{request.path}} ">
+        {% csrf_token %}
+
+        <div class="inputBox" style="display: inline-flex;width: 100%">
+
+            <h5 style="width: 100%; color: dodgerblue;">
+                Select the Language:
+            </h5>
+
+            <select name="language" id="langName" class="language_selector_dropdown">
+                <option value="all" style="font-weight: bold;" selected>
+                    All
+                </option>
+
+                {% for lang in languages %}
+                    {% if lang.name == language %}
+                        <option value="{{lang.name}}" style="font-weight: bold;" selected>
+                            {{lang.name}}
+                        </option>
+                    {% else %}
+                        <option value="{{lang.name}}" style="font-weight: bold;">
+                            {{lang.name}}
+                        </option>
+                    {% endif %}
+                {% endfor %}
+
+            </select>
+
+            <button class="txt-color" id="langButton" style="border: 1px solid dodgerblue;background:#122647;">
+                Go
+            </button>
+
+        </div>
+
+    </form>
+
+</hgroup>
+
+
+<a type="button" href="{% url 'querybook_add' lang='Python' %}?next={{request.path}}" class="btn btn-primary arbuttons add_query">
+    <span class="test"></span>
+    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+</a>
+<br>
+<br>
+<script>
+    $('.add_query').hover(
+        function () {
+            $(this).addClass("add_query_hover"); //Add an active class to the anchor
+            $('.test').text('ADD QUERY '); //Add an active class to the anchor
+        },
+        function () {
+            $('.test').text(''); //Add an active class to the anchor
+            $(this).removeClass("add_query_hover"); //Add an active class to the anchor
+        });
+</script>

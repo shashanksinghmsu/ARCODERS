@@ -1,0 +1,176 @@
+:root {
+    --nav_border : dodgerblue;
+    --nav_outline : #122647;
+    --nav_text_color : black;
+    --nav_background_color: white;
+}
+
+/* style in the main page on the background no affect of color */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    background: #34495E;
+}
+
+/* style for slider bar open and close */
+header #button-menu {
+    font-size: 30px;
+    color: var(--nav_background_color);
+    cursor: pointer;
+
+}
+
+/* base of slide-bar used property are height and more */
+.navegacion {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0%;
+    height: 100vh;
+
+}
+
+/* unordered list in the base of slide bar which contain language blocks as list items*/
+.navegacion .menu{
+outline-style: solid; 
+outline-width: 2px; 
+outline-color: purple;
+padding-left: 0%; 
+overflow-y: auto; 
+box-shadow: 5px 5px 20px purple;
+background: black;
+color: mintcream;
+}
+
+
+/* title of the navigation bar */
+.navegacion .menu li.title-menu {
+    padding: 20px;
+    text-align: center;
+    font-size: 22px;
+    background-color: var(--nav_outline);
+    color: var(--nav_border);
+    font-weight: bold;
+    border-bottom: 2px solid purple;
+    font-family: JetBrains Mono, monospace, Roboto;
+
+}
+
+
+/* style for language block at the first level and helps to set the background color of the slidebar */
+.navegacion ul {
+    width: 320px;
+    height: 100%;
+    position: absolute;
+    outline: 2px solid purple;
+    top: 0;
+    left: -320px;
+    transition: left .4s ease-in-out;
+    background: black;
+    
+}
+
+/* same language block but control hover and more actions */
+.navegacion .menu a {
+    display: block;
+    padding: 20px;
+    border-bottom: 2px solid dodgerblue;
+    font-size: 20px;
+    text-decoration: none;
+    color: dodgerblue;
+    font-weight: bold;
+    font-family: JetBrains Mono, monospace, Roboto;
+
+    }
+
+
+/* maintain margin between the icon and the text */
+.navegacion .menu li span.icon-menu {
+    margin-right: 12px;
+    color: dodgerblue !important;
+}
+
+
+/* next arrow icon in the language block */
+/* .navegacion .menu .item-submenu>a::after {
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+     content: '\f105'; 
+    color: dodgerblue;
+    float: right;
+} */
+
+.slidebar-arrow-icon{
+    color: dodgerblue;
+    float: right;
+}
+
+/* Submenu ============*/
+
+.navegacion .submenu{
+    padding: 0%;
+}
+
+/* contain the title(language name) on the scond level of the slidebar */
+/* logo */
+.navegacion .submenu li.title-menu span{
+    color: var(--nav_border);
+    background: var(--nav_outline);
+}
+/* for text data(language name) */
+.navegacion .submenu li.title-menu{
+    color: var(--nav_border);
+    background: var(--nav_outline);
+}
+
+/* style for the next button in the second level of the slide bar */
+.navegacion .submenu li.go-back {
+    padding: 10px 20px;
+    border: 2px solid purple;
+    border-bottom: 3px solid purple;
+    background: var(--nav_text_color);
+    color: var(--nav_border);
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: JetBrains Mono, monospace, Roboto;
+}
+
+.navegacion .submenu li.go-back::before {
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* content: '\f0d9'; */
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 320px) {
+    .navegacion ul {
+        width: 100%;
+    }
+}
+
+
+.menu{
+    padding-bottom: 75px;
+}
+
+.slidebar-logo{
+    width: 2.5rem;
+    height: 2.5rem; 
+    border-radius: 0%;
+    box-shadow: none; 
+    border: none;
+}
+
+.title-arcoders{
+    vertical-align: middle;
+    color: #0369d8; 
+    font-family: JetBrains Mono, monospace, Roboto; 
+    font-size: 1.7rem;
+}

@@ -1,0 +1,162 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300&display=swap');
+
+
+
+
+
+.contain{
+    box-sizing: border-box;
+    font-family: 'Recursive', sans-serif;
+    /* position: relative; */
+    width: 100%;
+    margin-top: 200px;
+    max-width: 600px;
+    margin: auto;
+    height: 500px;
+    background: #122647;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .container */
+ .formBx
+{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .container ..contactFormBx */
+ .contactForm
+{
+    position: relative;
+    width: 100%;
+    padding: 0 0 0 75px;
+}
+
+/* .container ..contactFormBx  */
+.contactForm h2
+{
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 2em;
+    text-trans.contactForm: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+
+/* .container ..contactFormBx */
+ .contactForm .inputBox
+{
+    position: relative;
+    margin-bottom: 40px;
+}
+/* .container ..contactFormBx */
+ .contactForm .inputBox:last-child
+{
+    margin-bottom: 0px;
+}
+
+.contactForm .inputBox input,
+.contactForm .inputBox textarea
+{
+    position: relative;
+    background: transparent;
+    outline: none;
+    border: none;
+    width: 100%;
+    color: #fff;
+    padding-bottom: 10px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    border-bottom: 2px solid rgba(255,255,255,0.5);
+    /* resize: none; */
+}
+
+.contactForm .inputBox textarea
+{
+    height: 100px;
+}
+
+.contactForm .inputBox input[type='submit']
+{
+    background: #fff;
+    padding: 8px 20px;
+    margin-top: -10px;
+    width: 125px;
+    cursor: pointer;
+    background: #ff5064;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.contactForm .inputBox input[type='submit']:focus
+{
+    background: #1bfaad;
+    color: #111;
+    text-align: center;
+}
+
+.contactForm .inputBox span{
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+    font-weight: 300;
+    display: inline-block;
+    pointer-events: none;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.5);
+    transition: all 0.2s;
+}
+
+.contactForm .inputBox input:focus ~ span,
+.contactForm .inputBox textarea:focus ~ span,
+.contactForm .inputBox input:valid ~ span,
+.contactForm .inputBox textarea:valid ~ span
+{
+    transform: translateY(-24px);
+    color: dodgerblue;
+    font-size: 14px;
+    font-weight: bolder;
+}
+.contactForm .inputBox input:focus,
+.contactForm .inputBox textarea:focus,
+.contactForm .inputBox input:valid,
+.contactForm .inputBox textarea:valid
+{
+    border-block-color: #fff;
+}
+
+
+
+/* used for dropdown list */
+    option {
+        background: #122647;
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    select:active,
+    select:hover {
+        outline-color: dodgerblue;
+    }
+
+    /* may be used in submit button */
+
+    .arsubmit:focus {
+        outline: none;
+    }
+
+
+
+
+
+    

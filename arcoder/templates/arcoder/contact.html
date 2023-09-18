@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Contact : ARCODERS
+{% endblock %}
+
+
+{% block head %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'CSS/neon.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/form.css' %}">
+
+{% endblock %}
+{% block content %}
+
+<div class="contain" style="margin-top: 50px;">
+    <div class="formBx">
+
+        <form class="contactForm" method="post" action="{% url 'contact' %}?next={{request.path}} ">
+            {% csrf_token %}
+
+            <h2>Contact Us</h2>
+            <div class="inputBox">
+                <input type="text" name="name" required>
+                <span>Full Name</span>
+            </div>
+            <div class="inputBox">
+                <input type="email" name="email" required>
+                <span>Email</span>
+            </div>
+
+            <div class="inputBox">
+                <textarea name="desc" required></textarea>
+                <span>Desc</span>
+            </div>
+            <!-- <div class="inputBox">
+        <input type="submit" value="Submit">
+      </div> -->
+            <div>
+                <button class="arsubmit" type="submit" style="background: transparent;border: none;">
+                    <a class="neon" type="submit" style="color: dodgerblue; cursor: pointer;">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        SUBMIT
+                    </a>
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+{% block js %}
+
+<script type="text/javascript" src="{% static 'js/contact.js' %}"></script>
+
+{% endblock %}

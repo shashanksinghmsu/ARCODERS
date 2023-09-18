@@ -1,0 +1,229 @@
+.contain.sb-collapsed {
+    padding-left: 0px;
+    transition: all 100ms linear;
+    transition-delay: 350ms;
+}
+
+.contain.sb-collaspse-bk {
+    padding-left: 280px;
+    transition: all 100ms linear;
+}
+
+.contain.sb-collapsed .sb-menu {
+    width: 280px;
+    transition: all 100ms ease-in-out;
+    transition-delay: 300ms;
+    left: -280px;
+}
+
+.contain.sb-collaspse-bk .sb-menu {
+    width: 280px;
+    transition: all 100ms ease-in-out;
+}
+
+.sb-icon.sb-set {
+    right: 230px;
+    margin-bottom: 0.5em;
+}
+
+.contain.sb-collapsed .sb-icon {
+}
+
+.contain.sb-collaspse-bk .sb-icon {
+    margin-top: 0;
+}
+
+.contain.sb-collapsed .logo {
+    padding: 21px;
+    height: 100vh;
+    box-sizing: border-box;
+    transition: all 100ms ease-in-out;
+    transition-delay: 300ms;
+}
+
+.contain.sb-collaspse-bk .logo {
+    padding: 21px;
+    box-sizing: border-box;
+    transition: all 100ms ease-in-out;
+}
+
+.contain.sb-collapsed #menu span {
+    opacity: 0;
+    transition: all 50ms linear;
+}
+
+.contain.sb-collaspse-bk #menu span {
+    opacity: 1;
+    transition: all 200ms linear;
+    transition-delay: 300ms;
+}
+
+.sb-menu {
+    position: fixed;
+    float: left;
+    width: 280px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #122647;
+    color: #ccc;
+    font-family: 'Lobster', cursive;
+    box-shadow: -5px 0px 30px purple;
+    z-index: 1;
+}
+
+#menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+#menu li {
+    position: relative;
+    margin: 0;
+    font-size: 15px;
+    border-bottom: 1px solid dodgerblue;
+    padding: 3px;
+}
+
+#menu li a {
+    font-family: 'Lobster', cursive;
+    font-weight: 400;
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    color: #ccc;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+#menu li a:hover {
+    color: dodgerblue;
+    background-color: black;
+    font-weight: bold;
+    transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+}
+
+#menu .fa {
+    margin-right: 5px;
+}
+
+.logo {
+    padding: 21px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 74px;
+}
+
+.sb-icon {
+    position: fixed;
+    left: 10px;
+    border: 2px solid dodgerblue;
+    text-align: center;
+    line-height: 1;
+    font-size: 30px;
+    padding: 6px 8px;
+    border-radius: 50%;
+    color: white;
+    background: black;
+    background-clip: padding-box;
+    transition: all 200ms linear;
+    transition-delay: 300ms;
+
+}
+
+
+
+
+.logo-align {
+    color: #fff;
+    margin: auto;
+}
+
+
+
+.scroller-y::-webkit-scrollbar {
+    width: 2px;
+    height: 160px;
+}
+
+.scroller-y::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #122647;
+}
+
+.scroller-y::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: dodgerblue;
+
+}
+
+
+.codeBlock {
+    padding: 5px;
+    padding-left: 10px;
+}
+
+
+.codeBlock::-webkit-scrollbar {
+    width: 2px;
+    height: auto;
+}
+
+
+.txt-content div {
+    background: black !important;
+    border: 1px solid white !important;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: white !important;
+
+}
+
+
+.txt-content table {
+    border: 2px solid white !important;
+    color: white !important;
+    background: black !important;
+    border-collapse: collapse !important;
+}
+
+.txt-content table th,
+td {
+    text-align: center;
+}
+
+
+
+
+.scroller {
+    overflow-x: scroll;
+}
+
+.scroller::-webkit-scrollbar {
+    width: 40%;
+    height: 3px;
+}
+
+.scroller::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #122647;
+}
+
+.scroller::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: dodgerblue;
+}
+
+
+/* handle the position of menu bar */
+.top {
+    top: 3rem;
+    left: 250px;
+    transition: all 200ms linear;
+    transition-delay: 300ms;
+
+}

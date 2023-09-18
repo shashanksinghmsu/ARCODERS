@@ -1,0 +1,22 @@
+    p {
+        text-align: left;
+    }
+
+
+    /* language_selector style */
+
+/* add query styling */
+.add_query{
+    border-radius: 50%;
+    /* margin-bottom: 1rem; */
+}
+
+.add_query_hover{
+    border-radius: 10px !important;
+}    
+
+
+
+
+/* qurybook_card style */
+	

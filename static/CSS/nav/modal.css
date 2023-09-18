@@ -1,0 +1,35 @@
+    :root {
+        --background_color: #122647;
+        --border_color: dodgerblue;
+        --text_color: white;
+    }
+
+    .modal-content {
+        background: black !important;
+        border: 2px solid var(--border_color) !important;
+    }
+
+    .modal-header {
+        color: var(--border_color) !important;
+        border-bottom: 2px solid var(--border_color) !important;
+    }
+
+    .modal-body {
+        align-self: center !important;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        display: flex;
+    }
+
+    .form-label {
+        font-size: 30px;
+        padding-right: 5px;
+        color: dodgerblue;
+    }
+
+    .modal-footer {
+        border-top: 2px solid var(--border_color);
+    }
+

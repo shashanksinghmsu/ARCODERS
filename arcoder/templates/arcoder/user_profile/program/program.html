@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+{{user.username}} Programs : ARCODERS
+{% endblock %}
+<!-- ----------------------------------------------------------------------------------------- -->
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'CSS/category.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/language_selector.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/card.css' %}">
+
+
+{% endblock %}
+<!-- ----------------------------------------------------------------------------------------- -->
+{% block content %}
+<script>
+    var change_langauge_url = `/user/program/`
+    var category_language_selected = '{{ language }}';
+    var title_prefix = '';
+</script>
+
+<!-- language selector and heading -->
+{% include 'language_selector.html' %}
+{% include 'program/add_button.html' %}
+
+<section class="col-xs-12 col-sm-6 col-md-12" style="color: mintcream;" id = 'program_card_section'>
+    
+    <!-- program card -->
+    {% include 'program/program_card.html' %}
+
+    <!-- paginator -->
+
+</section>
+   {% include 'program/paginator.html' %}
+
+{% endblock %}
+
+
+
+{% block js %}
+
+
+{% endblock %}

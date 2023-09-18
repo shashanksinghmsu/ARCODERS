@@ -1,0 +1,83 @@
+    .collapse-content .fa.fa-heart:hover {
+        /* color: #f44336 !important; */
+        color: dodgerblue !important;
+        cursor: pointer;
+    }
+
+    .like {
+        /* color: #f44336 !important; */
+        color: dodgerblue !important;
+    }
+
+    .collapse-content .fa.fa-share-alt:hover {
+        color: #0d47a1 !important;
+        cursor: pointer;
+    }
+
+    .container {
+        text-align: center;
+
+    }
+
+
+        .promoting-card {
+        max-width: 232px;
+        display: inline-block;
+        margin: 5em 2em;
+        background: #122647;
+        color: white;
+        border: 2.5px solid dodgerblue;
+    }
+
+    .card-img-top {
+        border-radius: 50%;
+        box-shadow: none;
+        max-width: 227px;
+        max-height: 227px;
+        border-width: 2px;
+        height: 227px;
+        width: 227px;
+        object-fit: contain;
+        border: 3.4px solid dodgerblue;
+        background-color: #122647;
+        margin-left: 2px;
+        margin-right: 2px;
+        border-color: dodgerblue;
+        transition : border 500ms ease-out;
+        transition : border-radius 2000ms ease-out;
+
+    }
+    .card-img-top:hover{
+        animation: animate 5s linear infinite;
+        border: 50px solid dodgerblue;
+        border-radius: 25%;
+        
+
+    }
+
+
+
+
+    .card-body {
+        padding-left: 1rem;
+        text-align: left;
+    }
+
+    .language-btn {
+        margin-top: 7px;
+        text-decoration: none;
+        color: mintcream;
+        background: #0c1a5f;
+        border-color: dodgerblue;
+        font-family: JetBrains Mono, monospace, Roboto;
+    }
+
+    .card-text{
+        color: mintcream;
+        font-family: JetBrains Mono, monospace, Roboto;
+    }
+
+    .card-title{
+        font-family: JetBrains Mono, monospace, Roboto;
+        font-weight: 500 !important;
+    }

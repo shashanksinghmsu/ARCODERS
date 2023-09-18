@@ -1,0 +1,19 @@
+    /* add_solution style */
+        .solution_form {
+        width: 100%;
+        margin-bottom: 1rem;
+        overflow-x: scroll;
+    }
+
+    .solution_form p{
+        color: dodgerblue;
+        font-size: 1.5rem;
+        font-weight: bold;
+        font-family: sans-serif, 'Roboto';
+    }
+    .django-ckeditor-widget {
+        width: 100%;
+    }
+    .django-ckeditor-widget textarea{
+        width: 100%;
+    }

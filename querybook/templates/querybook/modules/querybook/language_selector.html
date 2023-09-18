@@ -1,0 +1,53 @@
+
+
+
+<hgroup class="mb20" style="margin-top: 40px;">
+    <h1 class="language_selector_title">
+        {{language}} QueryBook
+    </h1>
+
+    <form method="post" id="languageSelect" action="{% url 'querybook' %}?next={{request.path}} ">
+        {% csrf_token %}
+
+        <div class="inputBox" style="display: inline-flex;width: 100%">
+            <h5 style="width: 100%; color: dodgerblue;">
+                Select the Language:
+            </h5>
+
+            <select name="language" id="langName" class="language_selector_dropdown">
+                <option value="all" style="font-weight: bold;" selected>
+                    All
+                </option>
+
+                {% for lang in languages %}
+                    {% if lang.name == language %}
+                        <option value="{{language}}" style="font-weight: bold;" selected>
+                            {{language}}
+                        </option>
+                    {% else %}
+                        <option value="{{lang.name}}" style="font-weight: bold;">
+                            {{lang.name}}
+                        </option>
+                    {% endif %}
+                {% endfor %}
+
+            </select>
+
+            <button class="txt-color" id="langButton" style="border: 1px solid dodgerblue;background:#122647;">
+                Go
+            </button>
+
+        </div>
+
+    </form>
+
+</hgroup>
+
+
+<a type="button" href="{% url 'querybook_add' lang='Python' %}?next={{request.path}}" class="btn btn-primary arbuttons add_query">
+    <span class="test"></span>
+    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+</a>
+<br>
+<br>
+

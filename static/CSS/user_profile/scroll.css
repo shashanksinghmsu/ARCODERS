@@ -1,0 +1,40 @@
+
+    .scroller {}
+
+    .scroller::-webkit-scrollbar {
+        width: 40%;
+        height: 1px;
+        /* border: 1px solid dodgerblue; */
+    }
+
+    .scroller::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: #122647;
+        /* background: dodgerblue; */
+    }
+
+    .scroller::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: dodgerblue;
+        /* background: #122647; */
+
+    }
+
+    .scroller-y::-webkit-scrollbar {
+        width: 2px;
+        height: 160px;
+        /* border: 1px solid dodgerblue; */
+    }
+
+    .scroller-y::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: #122647;
+        /* background: dodgerblue; */
+    }
+
+    .scroller-y::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: dodgerblue;
+        /* background: #122647; */
+
+    }

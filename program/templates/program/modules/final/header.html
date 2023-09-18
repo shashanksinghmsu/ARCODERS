@@ -1,0 +1,11 @@
+    <h3 class="mt-4 program_title" id = 'program_title_data'>
+    </h3>
+
+    <div class="language_block">
+        <a href="{% url 'language' lang=language %}?next={{request.path}}">
+            <span class="fa fa-laptop" aria-hidden="true"></span> 
+            {{language|capfirst}}
+        </a>
+    </div>
+
+    <hr style="border:1px solid dodgerblue;">

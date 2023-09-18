@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %} {{language}} : ARCODERS
+{% endblock %}
+{% block head %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'CSS/language.css' %}">
+
+{% endblock %}
+
+{% block content %}
+{% load apptags %}
+<div class="card-container">
+{% for category in language.category|splitByComma:language.category %}
+
+<div class="card text-center card-colors card-style" title="{{language}} {{category}}">
+    <div class="card-header card-colors title-style">
+        {{language}}
+    </div>
+    <hr style="border: 1px solid dodgerblue;">
+    <div class="card-body card-colors" style="border-radius: 15px;font-family: sans-serif, 'Roboto';">
+        <h5 class="card-title">{{category|capfirst}}</h5>
+        <hr style="border: 1px solid mintcream;">
+        <p class="card-text" style="font-family: sans-serif, 'Roboto';">
+        {% if category == 'program' %}
+        {{text.program}}
+        {% else %}
+        {{text.querybook}}
+        {% endif %}
+        </p>
+    
+        <a href="/{{category}}/{{language.name}}/?next={{request.path}}" class="btn btn-primary arbuttons">Go to {{category}}</a>
+
+    </div>
+</div>
+
+
+{% endfor %}
+</div>
+
+
+
+{% endblock %}
